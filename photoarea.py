@@ -38,5 +38,5 @@ indexl=list( dict.fromkeys(indexl) )
 print(indexl)
 
 for index in indexl:
-    subprocess.run(["python3","creator.py", "--scenery_folder", "/home/anders/photoscenery", "--index",str(index) ], capture_output=False, text=True)
+    subprocess.run(["python3","creator.py", "--scenery_folder", "<path to folder>", "--index",str(index) ], capture_output=False, text=True)
    
