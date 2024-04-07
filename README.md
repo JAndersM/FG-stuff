@@ -11,6 +11,8 @@ To install:
 # Photo area
 Runs creator.py ( https://github.com/nathanielwarner/flightgear-photoscenery/blob/master/creator.py ) over a specified "rectangular" area: python3 photoarea.py lat0 lon0 lat1 lon1
 
+Obs: write path to your photoscenery folder on the last line befor using the program.
+
 Note. You need to change tile width function below 22 latitude
 
 # Photo route
