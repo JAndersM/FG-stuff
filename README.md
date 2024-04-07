@@ -13,5 +13,5 @@ Runs creator.py ( https://github.com/nathanielwarner/flightgear-photoscenery/blo
 
 Note. You need to change tile width function below 22 latitude
 
-#Photo route
+# Photo route
 Same as area but with coordinates specified in a csv-file route.csv
