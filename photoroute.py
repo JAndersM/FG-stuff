@@ -7,7 +7,7 @@ coord=[]
 with open('route.csv') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
-        coord.append([row[1],row[0]])
+        coord.append([row[0],row[1]])
 
 print(coord)
 #Change tile_width for different latitudes
