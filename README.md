@@ -1,5 +1,5 @@
-# Add line
-Blender line object
+# Add Axis
+Blender axis object
 Useful for eg. Flightgear animation axis object.
 
 To install:
@@ -9,11 +9,13 @@ To install:
 2 In Blender preferences install the addon and check the box.
 
 # Get axis 
-print axis coords from Blender if axis object doesnt work
+Print axis coords from Blender. Useful for gltf export that doesn't handle axis objects.
 
 # Make Plane
 Creates and populates an aircraft directory structure
+
 Usage: pyton3 makeplane.py aircraft_name "Aircraft description"
+
 Needs the lmxl python3 library
 
 # Photo area
