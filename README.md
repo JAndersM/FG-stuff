@@ -9,10 +9,9 @@ To install:
 2 In Blender preferences install the addon and check the box.
 
 # Get axis 
-
 print axis coords from Blender if axis object doesnt work
 
-#Make Plane
+# Make Plane
 Creates and populates an aircraft directory structure
 Usage: pyton3 makeplane.py aircraft_name "Aircraft description"
 Needs the lmxl python3 library
