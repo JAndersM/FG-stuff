@@ -1,10 +1,10 @@
 bl_info = {
-    "name": "New Line",
+    "name": "New Axis",
     "author": "jam007",
     "version": (1, 0),
     "blender": (4, 0, 0),
     "location": "View3D > Add > Mesh > New Object",
-    "description": "Adds a new Line Object",
+    "description": "Adds a new Axis Object",
     "warning": "",
     "doc_url": "",
     "category": "Add Mesh",
@@ -29,7 +29,7 @@ def add_object(self, context):
     edges = [[0,1]]
     faces = []
 
-    mesh = bpy.data.meshes.new(name="Line")
+    mesh = bpy.data.meshes.new(name="Axis")
     mesh.from_pydata(verts, edges, faces)
     # useful for development when the mesh may be invalid.
     # mesh.validate(verbose=True)
@@ -37,9 +37,9 @@ def add_object(self, context):
 
 
 class OBJECT_OT_add_object(Operator, AddObjectHelper):
-    """Create a new Line Object"""
+    """Create a new Axis Object"""
     bl_idname = "mesh.add_object"
-    bl_label = "Add Line Object"
+    bl_label = "Add Axis Object"
     bl_options = {'REGISTER', 'UNDO'}
 
     scale: FloatVectorProperty(
@@ -61,7 +61,7 @@ class OBJECT_OT_add_object(Operator, AddObjectHelper):
 def add_object_button(self, context):
     self.layout.operator(
         OBJECT_OT_add_object.bl_idname,
-        text="Add Line",
+        text="Add Axis",
         icon='IPO_LINEAR')
 
 
