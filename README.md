@@ -12,6 +12,11 @@ To install:
 
 print axis coords from Blender if axis object doesnt work
 
+#Make Plane
+Creates and populates an aircraft directory structure
+Usage: pyton3 makeplane.py aircraft_name "Aircraft description"
+Needs the lmxl python3 library
+
 # Photo area
 Runs creator.py ( https://github.com/nathanielwarner/flightgear-photoscenery/blob/master/creator.py ) over a specified "rectangular" area: python3 photoarea.py lat0 lon0 lat1 lon1
 
