@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+
+<fdm_config name="*" version="1.0" release="ALPHA"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+ <fileheader>
+
+  <description>*</description>
+
+  <author>*</author>
+  <email>*</email>
+
+  <filecreationdate>2025-01-01</filecreationdate>
+  <version>*</version>
+
+  <license>
+   <licenseName>GPL</licenseName>
+   <licenseURL>http://www.gnu.org/licenses/gpl.html</licenseURL>
+  </license>
+
+ </fileheader>
+
+ <!--
+ ==== Metrics ===============================================================
+ -->
+ <metrics>
+  <!--documentation>
+  </documentation-->
+
+  <wingarea unit="M2"> 100 </wingarea>
+  <wingspan unit="M">   40 </wingspan>
+  <chord unit="M"> 2.5 </chord>
+  <htailarea unit="M2"> 4 </htailarea>
+  <htailarm unit="M2"> 2 </htailarm>
+  <vtailarea unit="M2"> 6 </vtailarea>
+  <vtailarm unit="M2"> 2 </vtailarm>
+  <location name="AERORP" unit="M">
+   <x> 0 </x>
+   <y> 0 </y>
+   <z> 15.545 </z>
+  </location>
+  <location name="EYEPOINT" unit="M">
+   <x> 0 </x>
+   <y> 0 </y>
+   <z> 1.5 </z>
+  </location>
+  <location name="VRP" unit="M">
+   <x> 0 </x>
+   <y> 0 </y>
+   <z> 6 </z>
+  </location>
+ </metrics>
+
+ <!--
+ ==== Mass balance ==========================================================
+ -->
+ <mass_balance>
+
+  <!--documentation>
+  </documentation-->
+
+  <ixx unit="KG*M2"> 5000 </ixx>
+  <iyy unit="KG*M2"> 5000 </iyy>
+  <izz unit="KG*M2"> 5000 </izz>
+  <ixy unit="KG*M2">   0   </ixy>
+  <ixz unit="KG*M2">   0   </ixz>
+  <iyz unit="KG*M2">   0   </iyz>
+  <emptywt unit="KG"> 1000 </emptywt>
+  <location name="CG" unit="M">
+   <x>  0     </x>
+   <y>  0     </y>
+   <z> 15.545 </z>
+  </location>
+
+  <!--pointmass name="Ballast">
+   <location unit="M">
+    <x> 0.0 </x>
+    <y> 0.0 </y>
+    <z> 0.0 </z>
+   </location>
+   <weight unit="KG"> 900.0 </weight>
+  </pointmass-->
+
+ </mass_balance>
+
+ <!--
+ === Ground reactions =======================================================
+ -->
+ <ground_reactions>
+
+  <!--contact type="STRUCTURE" name="*">
+   <location unit="M">
+    <x>  0.0  </x>
+    <y>  0.0  </y>
+    <z> 0.0 </z>
+   </location>
+   <static_friction> 0.5 </static_friction>
+   <dynamic_friction> 0.5 </dynamic_friction>
+   <rolling_friction> 1.0 </rolling_friction>
+   <spring_coeff unit="N/M"> 25000 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 5000 </damping_coeff>
+  </contact-->
+
+  <!--contact type="BOGEY" name="*">
+   <location unit="M">
+    <x>  0.0  </x>
+    <y>  0.0  </y>
+    <z> 0.0 </z>
+   </location>
+   <static_friction> 0.5 </static_friction>
+   <dynamic_friction> 0.5 </dynamic_friction>
+   <rolling_friction> 0.05 </rolling_friction>
+   <spring_coeff unit="N/M"> 25000 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 5000 </damping_coeff>
+   <max_steer unit="DEG">0</max_steer>
+   <brake_group>NONE</brake_group>
+   <retractable>1</retractable>
+  </contact-->
+  
+ </ground_reactions>
+
+ <propulsion>
+ 
+   <!--engine file="*">
+    <location unit="M">
+      <x> 0.00 </x>
+      <y> 0.00 </y>
+      <z> 0.00 </z> 
+    </location>
+    <orient unit="DEG">
+      <pitch> 0.00 </pitch>
+      <roll>  0.00 </roll>
+      <yaw>   0.00 </yaw>
+    </orient>
+    <feed>0</feed>
+    <thruster file="direct">
+     <sense> 1 </sense>
+     <location unit="M">
+       <x> 0.00 </x>
+       <y> 0.00 </y>
+       <z> 0.00 </z>
+     </location>
+     <orient unit="DEG">
+       <pitch> 0.00 </pitch>
+       <roll>  0.00 </roll>
+       <yaw>   0.00 </yaw>
+     </orient>
+    </thruster>
+  </engine-->
+  
+  <!--tank type="FUEL" number="0">
+     <location unit="M">
+       <x> 0.0 </x>
+       <y> 0.0 </y>
+       <z> 0.0 </z>
+     </location>
+     <capacity unit="KG"> 100.00 </capacity>
+     <contents unit="KG"> 100.00 </contents>
+     <priority> 0 </priority>
+  </tank-->
+   
+ </propulsion>
+
+ <!--
+ === Flight control system ==================================================
+ -->
+ <flight_control name="FGFCS">
+ 
+  <!-- CHANNELS -->
+  <!--channel name=*>
+
+   <summer name="*">
+    <input>fcs/*</input>
+    <clipto>
+     <min>0</min>
+     <max>1</max>
+    </clipto>
+   </summer>
+
+   <fcs_function name="*">
+    <function>
+    **
+    </function>
+    <output>*</output>
+   </fcs_function>
+  </channel-->
+
+ </flight_control>
+
+ <!--
+ ==== External reactions ====================================================
+ -->
+
+ <!--external_reactions>
+  <force name="added-mass-yaw[1]" frame="BODY">
+   <location unit="M">
+    <x>  0.0 </x>
+    <y>  0.3048 </y>
+    <z>  0.0 </z>
+   </location>
+   <direction>
+    <x> 1.0 </x>
+    <y> 0.0 </y>
+    <z> 0.0 </z>
+   </direction>
+  </force>
+
+ </external_reactions-->
+
+ <!--
+ === Aerodynamics ===========================================================
+ -->
+ <!-- Aerodynamic constants. -->
+ <!--system name="constants">
+  <property value="20.29"> aero/constants/* </property>
+ </system-->
+
+ <aerodynamics>
+ 
+  <axis name="DRAG">
+   <function name="aero/coefficient/CDh">
+    <description>Drag</description>
+    <product>
+     <property>aero/qbar-psf</property>
+     <value> 1000 </value>
+     <table>
+      <independentVar lookup="row">aero/alpha-deg</independentVar>
+      <tableData>
+       -135 0.033088
+       -90  0.024652
+       -45  0.033088
+       0    0.020219
+       45   0.067882
+       135  0.067882
+      </tableData>
+     </table>
+    </product>
+   </function>
+  </axis>
+
+  <axis name="LIFT">
+    <function name="aero/force/Lift_alpha">
+      <description>Lift due to alpha</description>
+      <product>
+          <property>aero/qbarUW-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>aero/function/kCLge</property>
+          <table>
+            <independentVar lookup="row">aero/alpha-rad</independentVar>
+            <tableData>
+              -0.35 -0.91
+              -0.17 -0.39
+               0.00  0.06
+               0.17  0.55
+               0.44  1.28
+               0.61  1.60
+               0.79  1.45
+               0.91  0.97
+               1.04  0.82
+               1.40  0.26
+               1.80 -0.26
+            </tableData>
+          </table>
+      </product>
+    </function>
+  </axis>
+
+  <axis name="SIDE">
+    <function name="aero/force/Side_beta">
+       <description>Side force due to beta</description>
+       <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+          <table>
+            <independentVar lookup="row">aero/beta-rad</independentVar>
+            <independentVar lookup="column">aero/alpha-rad </independentVar>
+            <tableData>
+                      -0.50   -0.17    0.0    0.26   0.50   0.70   1.00   1.70
+              -1.57    0.50    0.60    0.60   0.60   0.50   0.40   0.30   0.20
+              -0.26    0.05    0.15    0.12   0.10   0.13   0.13   0.02   0.02
+               0.00    0.00    0.00    0.00   0.00   0.00   0.00   0.00   0.00
+               0.26   -0.05   -0.15   -0.12  -0.10  -0.13  -0.13  -0.02  -0.02
+               1.57   -0.50   -0.60   -0.60  -0.60  -0.50  -0.40  -0.30  -0.20
+            </tableData>
+          </table>
+       </product>
+    </function>
+  </axis>
+  
+  <axis name="ROLL">
+   <function name="aero/coefficient/Clp">
+    <description>Roll_moment_due_to_roll_rate_(roll_damping)</description>
+    <product>
+     <property>aero/qbar-psf</property>
+     <property>metrics/Sw-sqft</property>
+     <property>metrics/bw-ft</property>
+     <property>aero/bi2vel</property>
+     <property>velocities/p-aero-rad_sec</property>
+    </product>
+   </function>
+  </axis>
+
+  <axis name="PITCH">
+   <function name="aero/coefficient/Cmq">
+    <description>Pitch_moment_due_to_pitch_rate_(damping)</description>
+    <product>
+     <property>aero/qbar-psf</property>
+     <property>metrics/Sw-sqft</property>
+     <property>metrics/cbarw-ft</property>
+     <property>aero/ci2vel</property>
+     <property>velocities/q-aero-rad_sec</property>
+    </product>
+   </function>
+  </axis>
+
+  <axis name="YAW">
+    <function name="aero/coefficient/Cmr">
+    <description>Pitch_moment_due_to_yaw_rate_(damping)</description>
+    <product>
+     <property>aero/qbar-psf</property>
+     <property>metrics/Sw-sqft</property>
+     <property>metrics/bw-ft</property>
+     <property>aero/bi2vel</property>
+     <property>velocities/r-aero-rad_sec</property>
+    </product>
+   </function>
+  </axis>
+  
+ </aerodynamics>
+
+</fdm_config>

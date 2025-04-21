@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <sim>
+  <description>*</description>
+  <author>*</author>
+  <aircraft-version>1.0</aircraft-version>
+
+  <!--tags>
+      <tag n="0">*</tag>
+  </tags-->
+  
+  <status type="string">alpha</status>
+  <rating>
+   <FDM type="int">1</FDM>
+   <systems type="int">1</systems>
+   <cockpit type="int">1</cockpit>
+   <model type="int">1</model>
+  </rating>
+
+  <flight-model>jsb</flight-model>
+  <aero>*</aero>
+  
+  <!--startup>
+   <splash-texture></splash-texture>
+  </startup>
+  
+  <previews>
+    <preview>
+      <type>exterior</type>
+      <splash type="bool">true</splash>
+      <path>Previews/*.jpg</path>
+    </preview>
+  </previews-->
+    
+  <sound>
+   <path>Sounds/sounds.xml</path>
+  </sound>
+
+  <model>
+   <path>*</path>
+   <!--fallback-model-index><Fallback model ID</fallback-model-index>
+   <livery>
+     <file type="string">*</file>
+   </livery-->
+  </model>
+
+  <systems>
+    <path>Systems/systems.xml</path>
+  </systems>
+  
+  <instrumentation>
+   <path>Instruments/instruments.xml</path>
+  </instrumentation>
+
+  <view n="0">
+   <internal archive="y">true</internal>
+   <config>
+    <!-- x/y/z == right/up/back -->
+    <x-offset-m type="double" archive="y">0.0</x-offset-m>
+    <y-offset-m type="double" archive="y">0.0</y-offset-m>
+    <z-offset-m type="double" archive="y">0.0</z-offset-m>
+    <pitch-offset-deg type="double">0</pitch-offset-deg>
+    <limits>
+     <enabled type="bool">false</enabled>
+    </limits>
+   </config>
+  </view>
+
+  <chase-distance-m type="double" archive="y">-50.0</chase-distance-m>
+
+  <help include="help.xml"/>
+  
+  <!--multiplay>
+   <generic>
+   </generic>
+  </multiplay>
+
+  <menubar>
+   <default>
+    <menu n="100">
+     <label>*</label>
+     <item>
+      <label>*</label>
+      <binding>
+      </binding>
+     </item>
+    </menu>
+   </default>
+  </menubar-->
+  
+ </sim>
+ 
+ <!--engines>
+    <engine n="0">
+      <running>false</running>
+    </engine>
+ </engines>
+  
+ <consumables>
+  <fuel>
+    <tank n="0">
+      <name type="string">Tank</name>
+      <level-gal_us archive="y">0</level-gal_us>
+    </tank>
+  </fuel>
+</consumables>
+
+<controls>
+</controls>
+
+<systems>
+  <pitot n="1">
+    <serviceable>1</serviceable>
+  </pitot>
+  <static n="1">
+    <serviceable>1</serviceable>
+  </static>
+</systems>
+      
+<limits>
+  <vne type="double">0</vne> 
+  <max-gear-extended-speed type="double">0</max-gear-extended-speed>
+  <max-positive-g type="double">0</max-positive-g>
+  <max-negative-g type="double">0</max-negative-g>
+  <max-touch-down-fpm type="double">0</max-touch-down-fpm>
+</limits>
+  
+<nasal>
+</nasal>
+
+<input>
+  <keyboard>
+  </keyboard>
+</input-->
+
+</PropertyList>

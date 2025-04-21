@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ 
+ <path>*</path>
+
+  <!--nasal>
+    <load><![CDATA[
+      #Multiplayer events 
+      # The on-load Nasal is not executed when this file is loaded as the user
+      # aircraft.
+      ##############################################################################
+      #var rplayer = cmdarg();
+      # Set up property aliases for animations.
+      #rplayer.getNode("*", 1).
+      # alias(rplayer.getNode("sim/multiplay/generic/int[0]"));
+      # Liveries
+      #var livery_update = aircraft.livery_update.new("Aircraft/*");
+      ]]>
+    </load>
+  </nasal-->
+
+<!-- Liveries -->
+ <!--animation>
+  <type>material</type>
+   <object-name>*</object-name>
+   <property-base>sim/model/livery</property-base>
+   <texture-prop>texture</texture-prop>
+   <texture>*</texture>
+ </animation-->
+
+ <!--effect>
+   <inherits-from>Effects/*</inherits-from>
+   <object-name>*</object-name>
+  </effect-->
+  
+<!-- LOD dependent Internal models  -->
+  <!--model>
+    <usage>interior</usage>
+    <path>*_iternal</path>
+  </model-->
+
+ <!--animation>
+  <type>noshadow</type>
+    <object-name>*</object-name>
+ </animation-->
+
+ <!-- ********** Animations ************** -->
+ <!--animation>
+  <type>translate</type>
+  <object-name>*</object-name>
+  <property>*</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.5</ind><dep>0.5</dep></entry>
+     <entry><ind>1.0</ind><dep>1.0</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation-->
+
+ <!--animation>
+    <type>spin</type>
+    <object-name>*</object-name>
+    <property>*</property>
+    <factor>1.0</factor>
+    <center>
+      <x-m>1</x-m>
+      <y-m>1</y-m>
+      <z-m>1</z-m>
+    </center>
+    <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+    </axis>
+ </animation-->
+
+ <!--animation>
+  <type>rotate</type>
+  <object-name>*</object-name>
+  <property>*</property>
+  <factor>1</factor>
+  <offset>0</offset>
+    <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation-->  
+ 
+ <!-- Models -->
+ 
+ <!--model>
+  <name>*</name>
+  <path>*</path>
+   <offsets>
+      <x-m> 1 </x-m>
+      <y-m> 1 </y-m>
+      <z-m> 1 </z-m>
+   </offsets> 
+ </model-->
+
+<!--   ***********Effects************ -->
+
+ <!--animation>
+  <type>textranslate</type>
+  <object-name>*</object-name>
+  <property>*</property>
+  <factor>1</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation-->
+
+ <!--animation>
+  <type>material</type>
+  <object-name>*</object-name>
+  <emission>
+   <red>0.3</red>
+   <green>0.3</green>
+   <blue>0.3</blue>
+   <factor-prop>*</factor-prop>
+  </emission>
+ </animation-->
+ 
+ <!--    Pilot  -->
+     <!--model>
+       <path>Pilot/pilot.xml</path>
+       <condition>
+         <not>
+            <property>/sim/current-view/internal</property>
+         </not>
+       </condition>
+       <offsets>
+          <x-m>0</x-m>
+          <y-m>0.0</y-m>
+          <z-m>0</z-m>
+          <pitch-deg>0</pitch-deg>
+       </offsets>
+    </model-->
+    
+</PropertyList>
