@@ -70,6 +70,7 @@ def populate(plane_name) :
             print("Permission denied.")
         except:
             print("Error occurred while copying file.")
+    shutil.copy("aircraftfiles/tumbnail.jpg", plane_name+"/thumbnail.jpg")
 
 def jsbsim(plane_name, plane_description) :
     tree = ET.parse("aircraftfiles/jsbsim.xml")
