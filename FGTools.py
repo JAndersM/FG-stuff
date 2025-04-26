@@ -103,7 +103,7 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
             axobj=False 
         text="<animation>\n"
         if myprops.animname != "":
-            text=text+"    <name"+myprops.animname+"</name>\n"
+            text=text+"    <name>"+myprops.animname+"</name>\n"
         for obj in selection:
             if obj != active or axobj==False:
                 text=text+"    <object-name>"+obj.name+"<object-name>\n"
