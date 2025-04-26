@@ -43,7 +43,7 @@ def makeset(plane_name, plane_description):
     tree = ET.parse("aircraftfiles/set.xml")
     root=tree.getroot()
     changes= {"description" : plane_description,
-              "aero" : plane_name+".xml",
+              "aero" : plane_name,
               "model/path": "Model/"+plane_name + "-model.xml",
               }
     for key in changes.keys() :
