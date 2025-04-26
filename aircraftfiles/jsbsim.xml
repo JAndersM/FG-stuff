@@ -32,9 +32,9 @@
   <wingspan unit="M">   40 </wingspan>
   <chord unit="M"> 2.5 </chord>
   <htailarea unit="M2"> 4 </htailarea>
-  <htailarm unit="M2"> 2 </htailarm>
+  <htailarm unit="M"> 2 </htailarm>
   <vtailarea unit="M2"> 6 </vtailarea>
-  <vtailarm unit="M2"> 2 </vtailarm>
+  <vtailarm unit="M"> 2 </vtailarm>
   <location name="AERORP" unit="M">
    <x> 0 </x>
    <y> 0 </y>
