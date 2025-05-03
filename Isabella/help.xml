@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <!-- Specific keys -->
+ <title>*</title>
+ <key>
+  <name>*</name>
+  <desc>*</desc>
+ </key>
+ <!-- Instructions. -->
+ <line>*</line>
+</PropertyList>

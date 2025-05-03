@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <sim>
+    <description>Isabella iceboat</description>
+    <author>JAndersM</author>
+    <aircraft-version>1.0</aircraft-version>
+
+    <tags>
+        <tag n="0">sailboat</tag>
+        <tag n="1">vehicle</tag>
+    </tags>
+
+    <status type="string">alpha</status>
+    <rating>
+     <FDM type="int">1</FDM>
+     <systems type="int">4</systems>
+     <cockpit type="int">4</cockpit>
+     <model type="int">3</model>
+    </rating>
+
+    <flight-model>jsb</flight-model>
+    <aero>Isabella</aero>
+
+    <!--startup>
+     <splash-texture></splash-texture>
+    </startup>
+
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Previews/*.jpg</path>
+      </preview>
+    </previews-->
+      
+    <sound>
+     <path>Sounds/sounds.xml</path>
+    </sound>
+
+    <model>
+     <path>Models/Isabella-model.xml</path>
+     <!--fallback-model-index><Fallback model ID</fallback-model-index>
+     <livery>
+       <file type="string">*</file>
+     </livery-->
+    </model>
+
+    <systems>
+      <path>Systems/systems.xml</path>
+    </systems>
+
+    <instrumentation>
+     <path>Instruments/instruments.xml</path>
+    </instrumentation>
+
+    <view n="0">
+      <internal archive="y">true</internal>
+      <config>
+        <!-- x/y/z == right/up/back -->
+        <x-offset-m type="double" archive="y">0.0</x-offset-m>
+        <y-offset-m type="double" archive="y">0.5</y-offset-m>
+        <z-offset-m type="double" archive="y">1.3</z-offset-m>
+        <pitch-offset-deg type="double">0</pitch-offset-deg>
+        <limits>
+           <enabled type="bool">false</enabled>
+        </limits>
+      </config>
+    </view>
+
+    <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
+
+    <help include="help.xml"/>
+
+    <!--multiplay>
+     <generic>
+     </generic>
+    </multiplay>
+
+    <menubar>
+     <default>
+      <menu n="100">
+       <label>*</label>
+       <item>
+        <label>*</label>
+        <binding>
+        </binding>
+       </item>
+      </menu>
+     </default>
+    </menubar-->
+
+  </sim>
+
+  <fdm>
+    <jsbsim>
+      <fcs>
+        <sheet-norm alias="/controls/engines/engine/throttle"/>
+      </fcs>
+    </jsbsim>
+  </fdm>
+    
+  <controls>
+  </controls>
+
+  <systems>
+    <pitot n="1">
+      <serviceable>1</serviceable>
+    </pitot>
+    <static n="1">
+      <serviceable>1</serviceable>
+    </static>
+  </systems>
+        
+  <limits>
+    <vne type="double">0</vne> 
+    <max-gear-extended-speed type="double">0</max-gear-extended-speed>
+    <max-positive-g type="double">0</max-positive-g>
+    <max-negative-g type="double">0</max-negative-g>
+    <max-touch-down-fpm type="double">0</max-touch-down-fpm>
+  </limits>
+    
+  <nasal>
+  </nasal>
+
+  <input>
+    <keyboard>
+      <key n="115">
+      <name>s</name>
+      <desc>Start push</desc>
+    <binding>
+      <command>property-assign</command>
+      <property>/fdm/jsbsim/external_reactions/start-push/magnitude</property>
+      <value>50</value>
+    </binding>
+    <mod-up>
+      <binding>
+        <command>property-assign</command>
+        <property>/fdm/jsbsim/external_reactions/start-push/magnitude</property>
+        <value>0</value>
+      </binding>
+    </mod-up>
+    </key>
+    </keyboard>
+  </input>
+
+</PropertyList>

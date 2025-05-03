@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Flight model for JSBSim.
+
+    Copyright (C) *
+
+-->
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+
+<fdm_config name="Isabella" version="2.0" release="ALPHA"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+  <fileheader>
+
+  <description>Isabella iceboat</description>
+
+  <author>JAndersM</author>
+  <email>*</email>
+
+  <filecreationdate>2025-01-01</filecreationdate>
+  <version>0.1</version>
+
+  <license>
+   <licenseName>GPL</licenseName>
+   <licenseURL>http://www.gnu.org/licenses/gpl.html</licenseURL>
+  </license>
+
+  </fileheader>
+
+  <!--
+  ==== Metrics ===============================================================
+  -->
+  <metrics>
+  <!--documentation>
+  </documentation-->
+
+  <wingarea unit="M2"> 0 </wingarea>
+  <wingspan unit="M">  0 </wingspan>
+  <chord unit="M"> 0 </chord>
+  <htailarea unit="M2"> 0 </htailarea>
+  <htailarm unit="M"> 0 </htailarm>
+  <vtailarea unit="M2"> 0 </vtailarea>
+  <vtailarm unit="M"> 0 </vtailarm>
+  <location name="AERORP" unit="M">
+   <x> 0 </x>
+   <y> 0 </y>
+   <z> 0 </z>
+  </location>
+  <location name="EYEPOINT" unit="M">
+   <x> 1.5 </x>
+   <y> 0 </y>
+   <z> 0.5 </z>
+  </location>
+  <location name="VRP" unit="M">
+   <x> 0 </x>
+   <y> 0 </y>
+   <z> 0 </z>
+  </location>
+  </metrics>
+
+  <!--
+  ==== Mass balance ==========================================================
+  -->
+  <mass_balance>
+
+  <!--documentation>
+  </documentation-->
+
+  <ixx unit="KG*M2"> 20 </ixx>
+  <iyy unit="KG*M2"> 180 </iyy>
+  <izz unit="KG*M2"> 190 </izz>
+  <ixy unit="KG*M2">   0   </ixy>
+  <ixz unit="KG*M2">   0   </ixz>
+  <iyz unit="KG*M2">   0   </iyz>
+  <emptywt unit="KG"> 30 </emptywt>
+  <location name="CG" unit="M">
+   <x> 0.7 </x>
+   <y>  0 </y>
+   <z>  0 </z>
+  </location>
+
+  <pointmass name="Sailor">
+   <location unit="M">
+    <x> 1.2 </x>
+    <y> 0.0 </y>
+    <z> 0.0 </z>
+   </location>
+   <weight unit="KG"> 90.0 </weight>
+  </pointmass>
+
+  </mass_balance>
+
+  <!--
+  === Ground reactions =======================================================
+  -->
+  <ground_reactions>
+
+  <contact type="STRUCTURE" name="Masthead">
+   <location unit="M">
+    <x>  1.0  </x>
+    <y>  -1.2  </y>
+    <z> 4.5 </z>
+   </location>
+   <static_friction> 0.5 </static_friction>
+   <dynamic_friction> 0.5 </dynamic_friction>
+   <rolling_friction> 1.0 </rolling_friction>
+   <spring_coeff unit="N/M"> 2500 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
+  </contact>
+
+  <contact type="BOGEY" name="FrontScate">
+   <location unit="M">
+    <x>  -2.54  </x>
+    <y>  0.0  </y>
+    <z> -0.236 </z>
+   </location>
+   <static_friction> 2.0 </static_friction>
+   <dynamic_friction> 1.5 </dynamic_friction>
+   <rolling_friction> 0.01 </rolling_friction>
+   <spring_coeff unit="N/M"> 10000 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
+   <max_steer unit="DEG">30</max_steer>
+   <brake_group>NONE</brake_group>
+   <retractable>0</retractable>
+  </contact>
+
+   <contact type="BOGEY" name="LeftScate">
+   <location unit="M">
+    <x>  1.30  </x>
+    <y>  -1.20  </y>
+    <z> -0.236 </z>
+   </location>
+   <static_friction> 2.0 </static_friction>
+   <dynamic_friction> 1.5 </dynamic_friction>
+   <rolling_friction> 0.01 </rolling_friction>
+   <spring_coeff unit="N/M"> 20000 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
+   <max_steer unit="DEG">0</max_steer>
+   <brake_group>NONE</brake_group>
+   <retractable>0</retractable>
+  </contact>
+
+    <contact type="BOGEY" name="RightScate">
+   <location unit="M">
+    <x>  1.30  </x>
+    <y>  1.20  </y>
+    <z> -0.236 </z>
+   </location>
+   <static_friction> 1.5 </static_friction>
+   <dynamic_friction> 1.5 </dynamic_friction>
+   <rolling_friction> 0.01 </rolling_friction>
+   <spring_coeff unit="N/M"> 20000 </spring_coeff>
+   <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
+   <max_steer unit="DEG">0</max_steer>
+   <brake_group>NONE</brake_group>
+   <retractable>0</retractable>
+  </contact>
+
+  </ground_reactions>
+
+  <propulsion>  
+  </propulsion>
+
+ <!--
+ === Flight control system ==================================================
+ -->
+  <flight_control name="FGFCS">
+  
+    <property value="0">fcs/sheet-angle</property>
+    <property value="0">fcs/sheet-norm</property>
+    
+    <function name="fcs/sail-target-angle">
+      <product>
+        <ifthen>
+          <ge>
+            <property>aero/mybeta-deg</property> 
+            <value>0</value> 
+          </ge>
+          <value>1</value>
+          <value>-1</value>
+        </ifthen>
+        <min>
+          <property>fcs/sheet-angle</property>
+          <abs>
+            <property>aero/mybeta-deg</property>
+          </abs>
+        </min>
+      </product>
+    </function>
+        
+    <channel name="Sheeting">
+    
+      <aerosurface_scale name="fcs/sheet-angle">
+        <input>fcs/sheet-norm</input>
+        <range>
+          <min> 0 </min>
+          <max> 60 </max>
+        </range>
+      </aerosurface_scale >
+
+      <lag_filter name="fcs/sail-angle-deg">
+        <input>fcs/sail-target-angle</input>
+        <c1>10</c1>
+        <clipto>
+          <min>-60</min>
+          <max>60</max>
+        </clipto>
+      </lag_filter>
+    
+    </channel>
+ 
+  <!-- CHANNELS -->
+  <!--channel name=*>
+
+   <summer name="*">
+    <input>fcs/*</input>
+    <clipto>
+     <min>0</min>
+     <max>1</max>
+    </clipto>
+   </summer>
+
+   <fcs_function name="*">
+    <function>
+    **
+    </function>
+    <output>*</output>
+   </fcs_function>
+  </channel-->
+
+ </flight_control>
+
+ <!--
+ ==== External reactions ====================================================
+ -->
+
+  <external_reactions>
+    <force name="start-push" frame="BODY">
+      <location unit="M">
+        <x> -1.5 </x>
+        <y>  0.0 </y>
+        <z>  0.3 </z>
+      </location>
+      <direction>
+        <x> 1.0 </x>
+        <y> 0.0 </y>
+        <z> 0.0 </z>
+      </direction>
+    </force>
+  </external_reactions>
+
+ <!--=== Aerodynamics ===================================================-->
+
+    
+  <aerodynamics>
+
+    <function name="aero/mybeta-rad">
+      <description>Beta angle -pi-+pi</description>
+      <atan2>
+        <property>velocities/v-aero-fps</property>
+        <property>velocities/u-aero-fps</property>
+      </atan2>
+    </function>
+
+    <function name="aero/mybeta-deg">
+      <description>Beta angle -180-+180 degrees</description>
+      <product>
+        <property>aero/mybeta-rad</property>
+        <value>57.2957795</value>
+      </product>
+    </function>  
+
+    <function name="aero/sail/alpha-deg">
+      <description>Sail alpha angle</description>
+      <difference>
+        <property>aero/mybeta-deg</property>
+        <property>fcs/sail-angle-deg</property>
+      </difference>
+    </function>
+    
+    <function name="aero/sail/drag">
+      <description>Sail Drag</description>
+      <product>
+        <property>aero/qbar-psf</property>
+        <value>60</value> <!-- 5.4 m2 -->
+        <cos>
+          <property>attitude/roll-rad</property>
+        </cos>
+        <table>
+          <independentVar lookup="row">aero/sail/alpha-deg</independentVar>
+          <tableData>
+            -180  -0.5
+            -120  -1.2
+            -105  -1.3
+            -75   -1.1
+            -45   -0.7
+            -30   -0.4
+            -20   -0.15
+            -15   -0.10
+            -10   -0.08
+            0     -0.06
+            10    -0.08
+            15    -0.10
+            20    -0.15
+            30    -0.4
+            45    -0.7
+            75    -1.1
+            105   -1.3
+            120   -1.2
+            180   -0.5
+          </tableData>
+            </table>
+      </product>
+    </function>
+
+    <function name="aero/sail/lift">
+       <description>Sail Lift</description>
+       <product>
+          <property>aero/qbar-psf</property>
+          <value>60</value>
+          <cos>
+            <property>attitude/roll-rad</property>
+          </cos>
+          <table>
+            <independentVar lookup="row">aero/sail/alpha-deg</independentVar>
+            <tableData>
+              -180  0.9
+              -150  0.9
+              -120  0.5
+              -75  -0.6
+              -35  -1.2
+              -30  -1.3
+              -25  -1.2
+              -10  -0.3
+              -5   -0.1    
+              0     0.0
+              5     0.1
+              10    0.3
+              25    1.2
+              30    1.3
+              35    1.2
+              75    0.6
+              120  -0.5
+              150  -0.9
+              180  -0.9
+            </tableData>
+          </table>
+       </product>
+    </function>
+    
+    <function name="aero/sail/lift-x">
+      <description>Sail lift x direction</description>
+      <product>
+        <property>aero/sail/lift</property>
+        <sin>
+          <property>aero/mybeta-rad</property>
+        </sin>
+      </product>
+    </function>
+    
+    <function name="aero/sail/lift-y">
+      <description>Sail lift y direction</description>
+      <product>
+        <property>aero/sail/lift</property>
+        <value>-1</value>
+        <cos>
+          <property>aero/mybeta-rad</property>
+        </cos>
+      </product>
+    </function>
+
+    <function name="aero/sail/drag-x">
+      <description>Sail drag x direction</description>
+      <product>
+        <property>aero/sail/drag</property>
+        <cos>
+          <property>aero/mybeta-rad</property>
+        </cos>
+      </product>
+    </function>
+    
+    <function name="aero/sail/drag-y">
+      <description>Sail drag y direction</description>
+      <product>
+        <property>aero/sail/drag</property>
+        <sin>
+          <property>aero/mybeta-rad</property>
+        </sin>
+      </product>
+    </function>
+ 
+    <function name="aero/sail/force-x">
+      <description>Sail force y direction</description>
+      <sum>
+        <property>aero/sail/drag-x</property>
+        <property>aero/sail/lift-x</property>
+      </sum>
+    </function>
+
+    <function name="aero/sail/force-y">
+      <description>Sail force y direction</description>
+      <sum>
+        <property>aero/sail/drag-y</property>
+        <property>aero/sail/lift-y</property>
+      </sum>
+    </function>
+    
+    <axis name="X">
+      <function name="aero/force/x">
+        <sum>
+          <property>aero/sail/force-x</property>
+        <product>
+          <property>aero/qbar-psf</property>
+          <value>2.0</value>
+          <cos>
+            <property>aero/mybeta-rad</property>
+          </cos>
+        </product>
+        </sum>
+      </function>
+    </axis>
+    
+    <axis name="Y">
+      <function name="aero/force/y">
+        <sum>
+          <property>aero/sail/force-y</property>
+          <value>0</value>
+        </sum>
+      </function>
+    </axis>
+
+
+    <!--axis name="Z">
+      <function name="aero/force/Downf">
+      <description>Downforce</description>
+      <product>
+        <property>aero/qbar-psf</property>
+        <value>10</value>
+        <value>-0.02</value>
+      </product>
+      </function>
+    </axis-->
+    
+    <axis name="ROLL">
+      <function name="aero/sail/mx">
+      <description>Roll moment sail</description>
+        <product>
+          <property>aero/sail/force-y</property>
+          <value>7</value> <!-- 2.1 m -->
+        </product>
+      </function>
+    </axis>
+
+    <axis name="PITCH">
+      <function name="aero/sail/my">
+      <description>Pitch moment sail</description>
+        <product>
+          <property>aero/sail/force-x</property>
+          <value>-7</value> <!-- 2.1 m -->
+        </product>
+      </function>
+    </axis>
+
+    <axis name="YAW">
+      <function name="aero/sail/mz">
+        <description>Yaw moment sail</description>
+        <product>
+          <sum>
+            <product>
+              <property>aero/sail/force-y</property>
+              <cos>
+                <product>
+                  <property>fcs/sail-angle-deg</property>
+                  <value>0.017453293</value>
+                </product>
+              </cos>
+            </product>
+            <product>
+              <property>aero/sail/force-x</property>
+              <sin>
+                <product>
+                  <property>fcs/sail-angle-deg</property>
+                  <value>0.017453293</value>
+                </product>
+              </sin>
+            </product>
+          </sum>
+          <value>-4.0</value> <!-- 1.2 m -->
+        </product>
+      </function>
+    </axis>
+    
+ </aerodynamics>
+
+</fdm_config>
+

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ 
+  <path>Isabella.ac</path>
+  
+  <!-- ********** Animations ************** -->
+
+  <animation>
+      <name>SteerSkate</name>
+      <object-name>RunnerF</object-name>
+      <type>rotate</type>
+      <property>/fdm/jsbsim/fcs/steer-cmd-norm</property>
+      <factor>-30.0</factor>
+      <center>
+          <x-m>-2.539</x-m>
+          <y-m>0.0</y-m>
+          <z-m>-0.166</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <name>Steering</name>
+      <object-name>Tiller</object-name>
+      <type>rotate</type>
+      <property>/controls/flight/rudder</property>
+      <factor>-30.0</factor>
+      <center>
+          <x-m>0.442</x-m>
+          <y-m>0.0</y-m>
+          <z-m>0.087</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>1</z>
+      </axis>
+  </animation>
+
+  <animation>
+    <object-name>SailS</object-name>
+    <type>select</type>
+    <condition>
+       <greater-than>
+          <property>/fdm/jsbsim/aero/sail/alpha-deg</property>
+          <value>0</value>
+       </greater-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <object-name>SailP</object-name>
+    <type>select</type>
+    <condition>
+       <less-than-equals>
+          <property>/fdm/jsbsim/aero/sail/alpha-deg</property>
+          <value>0</value>
+       </less-than-equals>
+    </condition>
+  </animation>
+  
+  <animation>
+      <name>SailAngle</name>
+      <object-name>Boom</object-name>
+      <object-name>SailS</object-name>
+      <object-name>SailP</object-name>
+      <object-name>Mast</object-name>
+      <object-name>Flag</object-name>
+      <type>rotate</type>
+      <property>/fdm/jsbsim/fcs/sail-angle-deg</property>
+      <center>
+          <x-m>0.0</x-m>
+          <y-m>0.0</y-m>
+          <z-m>0.188</z-m>
+      </center>
+      <axis>
+          <x>0</x>
+          <y>0</y>
+          <z>-1</z>
+      </axis>
+  </animation>
+
+  <animation>
+    <name>Flag angle</name>
+    <object-name>Flag</object-name>
+    <type>rotate</type>
+    <expression>
+      <sum>
+        <product>
+          <property>/fdm/jsbsim/aero/mybeta-deg</property>
+          <value>-1</value>
+        </product>
+        <property>/fdm/jsbsim/fcs/sail-angle-deg</property>
+      </sum>
+    </expression>
+    <center>
+      <x-m>1.001</x-m>
+      <y-m>0.0</y-m>
+      <z-m>4.642</z-m>
+    </center>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>
