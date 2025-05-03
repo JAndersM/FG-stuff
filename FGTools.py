@@ -230,7 +230,7 @@ class FG_OT_Model_Operator(bpy.types.Operator):
         +"        <pitch-deg>"+str(math.degrees(active.rotation_euler[1]))+"</pitch-deg>\n" \
         +"        <heading-deg>"+str(math.degrees(active.rotation_euler[2]))+"</heading-deg>\n" \
         +"        <roll-deg>"+str(math.degrees(active.rotation_euler[0]))+"</roll-deg>\n" \
-        +"    <offsets>\n"
+        +"    </offsets>\n</model>\n"
         export(myprops.file, text)
         return {'FINISHED'}
 
