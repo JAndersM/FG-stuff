@@ -3,11 +3,15 @@
 <PropertyList>
 
  <!-- Specific keys -->
- <title>*</title>
+ <title>Isabella iceboat</title>
  <key>
-  <name>*</name>
-  <desc>*</desc>
+  <name>s</name>
+  <desc>Push boat</desc>
  </key>
  <!-- Instructions. -->
- <line>*</line>
+ <text>
+ Use throttle to sheet the sail:
+ Increase to ease the sheet
+ Decrease to sheet in
+ </text>
 </PropertyList>

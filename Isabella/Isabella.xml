@@ -167,19 +167,24 @@
  -->
   <flight_control name="FGFCS">
   
-    <property value="0">fcs/sheet-angle</property>
-    <property value="0">fcs/sheet-norm</property>
+    <property value="60">fcs/sheet-angle</property>
+    <property value="1">fcs/sheet-norm</property>
+    <property value="0">fcs/tack</property>
+    
+    <function name="fcs/tack">
+      <ifthen>
+        <ge>
+          <property>aero/mybeta-deg</property> 
+          <value>0</value> 
+        </ge>
+        <value>1</value>
+        <value>-1</value>
+      </ifthen>
+    </function>
     
     <function name="fcs/sail-target-angle">
       <product>
-        <ifthen>
-          <ge>
-            <property>aero/mybeta-deg</property> 
-            <value>0</value> 
-          </ge>
-          <value>1</value>
-          <value>-1</value>
-        </ifthen>
+        <property>fcs/tack</property>
         <min>
           <property>fcs/sheet-angle</property>
           <abs>

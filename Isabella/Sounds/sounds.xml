@@ -1,50 +1,38 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-
+ 
   <fx>
 
-    <engine>
-      <name>engine0</name>
-      <path>Sounds/jet.wav</path>
+    <runner>
+      <name>Runnersound</name>
       <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[0]/running</property>
-      </condition>
+      <path>Sounds/runnerfast.wav</path>
+        <property>/velocities/groundspeed-kt</property>
       <volume>
-        <property>/engines/engine[0]/thrust_lb</property>
-        <factor type="double">0.00005</factor>
-        <max>0.6</max>
+        <property>/velocities/groundspeed-kt</property>
+        <factor>0.05</factor>
       </volume>
       <pitch>
-        <property>/engines/engine[0]/n1</property>
-        <factor>0.2</factor>
+        <property>/velocities/groundspeed-kt</property>
+        <factor>0.05</factor>
+        <min>0.2</min>
+        <max>2.0</max>
       </pitch>
-    </engine>
+    </runner>
 
-    <gear>
-      <name>gear0</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[0]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-    </gear>
-
-    <gear>
-      <name>gear-lock0</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[0]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
+    <flap>
+      <name>Flapsound</name>
+      <mode>once</mode>
+      <path>flap.wav</path>
+      <property>/sim/sound/flap</property>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.01</factor>
+        <offset>0.1</offset>
+      </volume>
+    </flap>
+    
     <wind>
       <name>wind</name>
       <mode>looped</mode>
@@ -52,14 +40,14 @@
       <property>/velocities/airspeed-kt</property>
       <volume>
         <property>/velocities/airspeed-kt</property>
-        <factor>0.0015</factor>
+        <factor>0.002</factor>
         <min>0.0</min>
         <max>0.2</max>
       </volume>
       <pitch>
         <property>/velocities/airspeed-kt</property>
         <factor>0.01</factor>
-        <offset>1.25</offset>
+        <offset>0.5</offset>
       </pitch>
     </wind>
     

@@ -36,6 +36,7 @@
       
     <sound>
      <path>Sounds/sounds.xml</path>
+     <flap type="bool">false</flap>
     </sound>
 
     <model>
@@ -121,6 +122,9 @@
   </limits>
     
   <nasal>
+    <Isabella>
+      <file>Nasal/isabella.nas</file>
+    </Isabella>
   </nasal>
 
   <input>
