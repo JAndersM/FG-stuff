@@ -22,17 +22,13 @@
     <flight-model>jsb</flight-model>
     <aero>Isabella</aero>
 
-    <!--startup>
-     <splash-texture></splash-texture>
-    </startup>
-
     <previews>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Previews/*.jpg</path>
+        <path>Previews/exterior1.jpg</path>
       </preview>
-    </previews-->
+    </previews>
       
     <sound>
      <path>Sounds/sounds.xml</path>

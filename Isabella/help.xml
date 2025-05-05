@@ -13,5 +13,11 @@
  Use throttle to sheet the sail:
  Increase to ease the sheet
  Decrease to sheet in
+ 
+ To get ice on lakes and snow on the ground in FG 2024.1+ :
+--prop:/environment/surface/ice-cover=true
+--prop:/environment/snow-level-m=-425
+--prop:/environment/snow-thickness-factor=0.6
+
  </text>
 </PropertyList>
