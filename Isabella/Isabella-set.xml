@@ -76,20 +76,22 @@
     <!--multiplay>
      <generic>
      </generic>
-    </multiplay>
+    </multiplay-->
 
     <menubar>
      <default>
       <menu n="100">
-       <label>*</label>
+       <label>Isabella</label>
        <item>
-        <label>*</label>
+        <label>Show pilot</label>
         <binding>
+          <command>property-toggle</command>
+          <property>/controls/pilot</property>
         </binding>
        </item>
       </menu>
      </default>
-    </menubar-->
+    </menubar>
 
   </sim>
 
@@ -102,6 +104,7 @@
   </fdm>
     
   <controls>
+    <pilot type="bool">false</pilot>
   </controls>
 
   <systems>

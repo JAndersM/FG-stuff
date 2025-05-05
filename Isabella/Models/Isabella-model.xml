@@ -110,4 +110,22 @@
     </axis>
   </animation>
 
+<!--    Pilot  -->
+     <model>
+       <path>Pilot/pilot.ac</path>
+       <condition>
+         <and>
+           <property>/controls/pilot</property>
+           <not>
+              <property>/sim/current-view/internal</property>
+           </not>
+         </and>
+       </condition>
+       <offsets>
+          <x-m>0.0</x-m>
+          <y-m>0</y-m>
+          <z-m>0.0</z-m>
+       </offsets>
+    </model>
+    
 </PropertyList>
