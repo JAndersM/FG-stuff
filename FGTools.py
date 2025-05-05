@@ -106,7 +106,7 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
             text=text+"    <name>"+myprops.animname+"</name>\n"
         for obj in selection:
             if obj != active or axobj==False:
-                text=text+"    <object-name>"+obj.name+"</object-name>\n"
+                text=text+"    <object-name>"+obj.name+"<object-name>\n"
         match myprops.type_enum:
             case "R":
                 at="rotate"
@@ -120,22 +120,22 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
                 at="***"
         text=text+"    <type>"+at+"</type>\n" \
         +"    <property>"+myprops.prop+"</property>\n" \
-        +"    <factor>"+str(myprops.factor)+"</factor>\n    <center>\n" \
-        +"        <x-m>"+str(active.location[0])+"</x-m>\n" \
-        +"        <y-m>"+str(active.location[1])+"</y-m>\n" \
-        +"        <z-m>"+str(active.location[2])+"</z-m>\n    </center>\n"
+        +f"    <factor>{myprops.factor:.6f}</factor>\n    <center>\n" \
+        +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
+        +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
+        +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
         if axobj :
             if myprops.object :
                 text=text+"    <axis>\n        <object-name>"+active.name+"<object-name>\n    </axis>\n"
             else :
                 v0=active.matrix_world @ active.data.vertices[0].co
                 v1=active.matrix_world @ active.data.vertices[1].co
-                text=text+"    <axis>\n        <x1-m>"+str(v0.x)+"</x1-m>\n" \
-                +"        <y1-m>"+str(v0.y)+"</y1-m>\n" \
-                +"        <z1-m>"+str(v0.z)+"</z1-m>\n" \
-                +"        <x2-m>"+str(v1.x)+"</x2-m>\n" \
-                +"        <y2-m>"+str(v1.y)+"</y2-m>\n" \
-                +"        <z2-m>"+str(v0.z)+"</z2-m>\n    </axis>\n"
+                text=text+f"    <axis>\n        <x1-m>{v0.x:.6f}</x1-m>\n" \
+                +f"        <y1-m>{v0.y:.6f}</y1-m>\n" \
+                +f"        <z1-m>{v0.z:.6f}</z1-m>\n" \
+                +f"        <x2-m>{v1.x:.6f}</x2-m>\n" \
+                +f"        <y2-m>{v1.y:.6f}</y2-m>\n" \
+                +f"        <z2-m>{v1.z:.6f}</z2-m>\n    </axis>\n"
         else :
             text=text+"    <axis>\n"
             match myprops.axis_enum:
@@ -224,12 +224,12 @@ class FG_OT_Model_Operator(bpy.types.Operator):
         myprops = context.scene.myprops
         text="<model>\n    <name>"+active.name+"</name>\n" \
         +"    <path>"+myprops.modelpath+"</path>\n    <offsets>\n" \
-        +"        <x-m>"+str(active.location[0])+"</x-m>\n" \
-        +"        <y-m>"+str(active.location[1])+"</y-m>\n" \
-        +"        <z-m>"+str(active.location[2])+"</z-m>\n" \
-        +"        <pitch-deg>"+str(math.degrees(active.rotation_euler[1]))+"</pitch-deg>\n" \
-        +"        <heading-deg>"+str(math.degrees(active.rotation_euler[2]))+"</heading-deg>\n" \
-        +"        <roll-deg>"+str(math.degrees(active.rotation_euler[0]))+"</roll-deg>\n" \
+        +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
+        +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
+        +f"        <z-m>{active.location[2]:.4f}</z-m>\n" \
+        +f"        <pitch-deg>{math.degrees(active.rotation_euler[1]):.2f}</pitch-deg>\n" \
+        +f"        <heading-deg>{math.degrees(active.rotation_euler[2]):.2f}</heading-deg>\n" \
+        +f"        <roll-deg>{math.degrees(active.rotation_euler[0]):.2f}</roll-deg>\n" \
         +"    </offsets>\n</model>\n"
         export(myprops.file, text)
         return {'FINISHED'}
