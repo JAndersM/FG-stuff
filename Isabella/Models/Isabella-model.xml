@@ -110,22 +110,37 @@
     </axis>
   </animation>
 
+<!-- GPS -->
+
+  <model>
+    <path>Instruments/GPS/gps.xml</path>
+    <condition>
+      <property>/controls/gps</property>
+    </condition>
+   <offsets>
+      <x-m>0.11</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.135</z-m>
+      <pitch-deg>60</pitch-deg>
+   </offsets>
+  </model>
+    
 <!--    Pilot  -->
-     <model>
-       <path>Pilot/pilot.ac</path>
-       <condition>
-         <and>
-           <property>/controls/pilot</property>
-           <not>
-              <property>/sim/current-view/internal</property>
-           </not>
-         </and>
-       </condition>
-       <offsets>
-          <x-m>0.0</x-m>
-          <y-m>0</y-m>
-          <z-m>0.0</z-m>
-       </offsets>
-    </model>
+  <model>
+   <path>Pilot/pilot.ac</path>
+   <condition>
+     <and>
+       <property>/controls/pilot</property>
+       <not>
+          <property>/sim/current-view/internal</property>
+       </not>
+     </and>
+   </condition>
+   <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.0</z-m>
+   </offsets>
+  </model>
     
 </PropertyList>

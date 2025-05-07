@@ -56,9 +56,9 @@
       <config>
         <!-- x/y/z == right/up/back -->
         <x-offset-m type="double" archive="y">0.0</x-offset-m>
-        <y-offset-m type="double" archive="y">0.5</y-offset-m>
+        <y-offset-m type="double" archive="y">0.67</y-offset-m>
         <z-offset-m type="double" archive="y">1.3</z-offset-m>
-        <pitch-offset-deg type="double">0</pitch-offset-deg>
+        <pitch-offset-deg type="double">-5</pitch-offset-deg>
         <limits>
            <enabled type="bool">false</enabled>
         </limits>
@@ -79,10 +79,17 @@
       <menu n="100">
        <label>Isabella</label>
        <item>
-        <label>Show pilot</label>
+        <label>Show sailor</label>
         <binding>
           <command>property-toggle</command>
           <property>/controls/pilot</property>
+        </binding>
+       </item>
+       <item>
+        <label>Show GPS</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>/controls/gps</property>
         </binding>
        </item>
       </menu>
@@ -101,6 +108,7 @@
     
   <controls>
     <pilot type="bool">false</pilot>
+    <gps type="bool">false</gps>
   </controls>
 
   <systems>
@@ -123,6 +131,7 @@
   <nasal>
     <Isabella>
       <file>Nasal/isabella.nas</file>
+      <file>Instruments/GPS/gps.nas</file>
     </Isabella>
   </nasal>
 

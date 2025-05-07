@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>Instruments/GPS/gps.ac</path>
+
+  <animation>
+    <type>material</type> 
+    <object-name>Display</object-name>
+    <object-name>U100</object-name>
+    <object-name>UnitU</object-name>
+    <object-name>UnitL</object-name>
+    <object-name>U10</object-name>
+    <object-name>U1</object-name>
+    <object-name>L100</object-name>
+    <object-name>L10</object-name>
+    <object-name>L1</object-name>
+    <emission>	
+      <red>1</red>	
+      <green>0.3</green>	
+      <blue>0.3</blue>
+      <factor-prop>/instrumentation/gps-annunciator/light</factor-prop>
+    </emission>
+  </animation>
+
+  <animation>
+    <object-name>DotU</object-name>
+    <type>select</type>
+    <condition>
+      <property>instrumentation/gps-annunciator/udot</property>
+    </condition>
+  </animation>
+ 
+  <animation>
+    <object-name>DotL</object-name>
+    <type>select</type>
+    <condition>
+      <property>instrumentation/gps-annunciator/ldot</property>
+    </condition>
+  </animation> 
+ 
+  <animation>
+      <type>textranslate</type>
+      <object-name>U100</object-name>
+      <property>instrumentation/gps-annunciator/u100</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <type>textranslate</type>
+      <object-name>U10</object-name>
+      <property>instrumentation/gps-annunciator/u10</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+      <type>textranslate</type>
+      <object-name>U1</object-name>
+      <property>instrumentation/gps-annunciator/u1</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <type>textranslate</type>
+      <object-name>L100</object-name>
+      <property>instrumentation/gps-annunciator/l100</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+
+  <animation>
+      <type>textranslate</type>
+      <object-name>L10</object-name>
+      <property>instrumentation/gps-annunciator/l10</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+      <type>textranslate</type>
+      <object-name>L1</object-name>
+      <property>instrumentation/gps-annunciator/l1</property>
+      <factor>0.07373</factor>
+      <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+    <name>Lightswitch</name>
+    <object-name>Bulb</object-name>
+    <type>slider</type>
+    <property>instrumentation/gps-annunciator/light</property>
+    <factor>0.001</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/gps-annunciator/light</property>
+      </binding>
+    </action>
+  </animation>
+  
+</PropertyList>
