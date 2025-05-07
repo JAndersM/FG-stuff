@@ -106,7 +106,7 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
             text=text+"    <name>"+myprops.animname+"</name>\n"
         for obj in selection:
             if obj != active or axobj==False:
-                text=text+"    <object-name>"+obj.name+"<object-name>\n"
+                text=text+"    <object-name>"+obj.name+"</object-name>\n"
         match myprops.type_enum:
             case "R":
                 at="rotate"
@@ -126,7 +126,7 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
         +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
         if axobj :
             if myprops.object :
-                text=text+"    <axis>\n        <object-name>"+active.name+"<object-name>\n    </axis>\n"
+                text=text+"    <axis>\n        <object-name>"+active.name+"</object-name>\n    </axis>\n"
             else :
                 v0=active.matrix_world @ active.data.vertices[0].co
                 v1=active.matrix_world @ active.data.vertices[1].co
