@@ -48,9 +48,9 @@
    <z> 0 </z>
   </location>
   <location name="EYEPOINT" unit="M">
-   <x> 1.5 </x>
+   <x> 1.3 </x>
    <y> 0 </y>
-   <z> 0.5 </z>
+   <z> 0.7 </z>
   </location>
   <location name="VRP" unit="M">
    <x> 0 </x>
@@ -109,7 +109,7 @@
    <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
   </contact>
 
-  <contact type="BOGEY" name="FrontScate">
+  <contact type="BOGEY" name="FrontRunner">
    <location unit="M">
     <x>  -2.54  </x>
     <y>  0.0  </y>
@@ -125,7 +125,7 @@
    <retractable>0</retractable>
   </contact>
 
-   <contact type="BOGEY" name="LeftScate">
+   <contact type="BOGEY" name="LeftRunner">
    <location unit="M">
     <x>  1.30  </x>
     <y>  -1.20  </y>
@@ -141,13 +141,13 @@
    <retractable>0</retractable>
   </contact>
 
-    <contact type="BOGEY" name="RightScate">
+    <contact type="BOGEY" name="RightRunner">
    <location unit="M">
     <x>  1.30  </x>
     <y>  1.20  </y>
     <z> -0.236 </z>
    </location>
-   <static_friction> 1.5 </static_friction>
+   <static_friction> 2.0 </static_friction>
    <dynamic_friction> 1.5 </dynamic_friction>
    <rolling_friction> 0.01 </rolling_friction>
    <spring_coeff unit="N/M"> 20000 </spring_coeff>
@@ -491,7 +491,7 @@
               </sin>
             </product>
           </sum>
-          <value>-4.0</value> <!-- 1.2 m -->
+          <value>-3.9</value> <!-- 1.2 m -->
         </product>
       </function>
     </axis>
