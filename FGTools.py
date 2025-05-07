@@ -72,6 +72,7 @@ class FG_PT_Animation_Panel(bpy.types.Panel):
     bl_options = {'DEFAULT_CLOSED'}
     
     knob=False
+    axis=False
 
     def draw(self, context):
         layout = self.layout
@@ -80,7 +81,9 @@ class FG_PT_Animation_Panel(bpy.types.Panel):
         layout.prop(myprops, "animname")
         layout.prop(myprops, "type_enum")
         layout.prop(myprops, "prop")
-        layout.prop(myprops, "axis_enum")
+        arow=layout.column()
+        arow.enabled=(len(bpy.context.active_object.data.vertices) !=2)        
+        arow.prop(myprops, "axis_enum")
         layout.prop(myprops, "factor")
         brow=layout.column()
         brow.prop(myprops, "bind_enum")
@@ -116,14 +119,18 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
                 at="translate"
             case "K":
                 at="knob"
+            case "L":
+                at="slider"
             case _:
                 at="***"
         text=text+"    <type>"+at+"</type>\n" \
         +"    <property>"+myprops.prop+"</property>\n" \
-        +f"    <factor>{myprops.factor:.6f}</factor>\n    <center>\n" \
-        +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
-        +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
-        +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
+        +f"    <factor>{myprops.factor:.6f}</factor>\n";
+        if at!="translate" and at!="slider":
+            text=text+"    <center>\n" \
+            +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
+            +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
+            +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
         if axobj :
             if myprops.object :
                 text=text+"    <axis>\n        <object-name>"+active.name+"</object-name>\n    </axis>\n"
@@ -140,19 +147,19 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
             text=text+"    <axis>\n"
             match myprops.axis_enum:
                 case "Xp" :
-                     text=text+"        <x>1</x>\n        <y>0</y>\n        <z>0</z>\n"
+                    text=text+"        <x>1</x>\n        <y>0</y>\n        <z>0</z>\n"
                 case "Xn" :
-                     text=text+"        <x>-1</x>\n        <y>0</y>\n        <z>0</z>\n"
+                    text=text+"        <x>-1</x>\n        <y>0</y>\n        <z>0</z>\n"
                 case "Yp" :
-                     text=text+"        <x>0</x>\n        <y>1</y>\n         <z>0</z>\n"
+                    text=text+"        <x>0</x>\n        <y>1</y>\n         <z>0</z>\n"
                 case "Yn" :
-                     text=text+"        <x>0</x>\n        <y>-1</y>\n        <z>0</z>\n"
+                    text=text+"        <x>0</x>\n        <y>-1</y>\n        <z>0</z>\n"
                 case "Zp" :
-                     text=text+"        <x>0</x>\n        <y>0</y>\n        <z>1</z>\n"
+                    text=text+"        <x>0</x>\n        <y>0</y>\n        <z>1</z>\n"
                 case "Zn" :
-                     text=text+"        <x>0</x>\n        <y>0</y>\n        <z>-1</z>\n"
+                    text=text+"        <x>0</x>\n        <y>0</y>\n        <z>-1</z>\n"
                 case _ :
-                    text=text+"****\n"
+                    text=text+"        <x>*</x>\n        <y>*</y>\n        <z>*</z>\n"
             text=text+"    </axis>\n"
         if myprops.bind_enum !="None" :
             text=text+"    <action>\n        <binding>\n"
@@ -235,7 +242,7 @@ class FG_OT_Model_Operator(bpy.types.Operator):
         return {'FINISHED'}
 
 def update_func(self, context):
-    if context.scene.myprops.type_enum=="K":
+    if context.scene.myprops.type_enum=="K" or context.scene.myprops.type_enum=="L":
         FG_PT_Animation_Panel.knob=True
     else:
         FG_PT_Animation_Panel.knob=False
@@ -250,7 +257,8 @@ class MyProperties(bpy.types.PropertyGroup):
             ("R", "Rotate", "Rotation animation"),
             ("S", "Spin", "Spin animation"),
             ("T", "Translate", "Translate animation"),
-            ("K", "Knob", "Knob animation")
+            ("K", "Knob", "Knob animation"),
+            ("L", "Slider", "Slider animation")
             ],
             update=update_func)
     bind_enum : bpy.props.EnumProperty(
