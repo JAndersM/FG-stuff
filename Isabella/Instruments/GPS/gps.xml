@@ -39,6 +39,17 @@
     </condition>
   </animation> 
  
+   <animation>
+      <type>textranslate</type>
+      <object-name>UnitU</object-name>
+      <property>instrumentation/gps-annunciator/mode</property>
+      <factor>-0.300</factor>
+      <axis>
+          <x>0</x>
+          <y>1</y>
+      </axis>
+  </animation>
+  
   <animation>
       <type>textranslate</type>
       <object-name>U100</object-name>
@@ -47,7 +58,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
 
@@ -59,7 +69,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
   
@@ -71,7 +80,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
 
@@ -83,7 +91,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
 
@@ -95,7 +102,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
   
@@ -107,7 +113,6 @@
       <axis>
           <x>1</x>
           <y>0</y>
-          <z>0</z>
       </axis>
   </animation>
   
@@ -115,13 +120,6 @@
     <name>Lightswitch</name>
     <object-name>Bulb</object-name>
     <type>slider</type>
-    <property>instrumentation/gps-annunciator/light</property>
-    <factor>0.001</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>-1</z>
-    </axis>
     <action>
       <binding>
         <command>property-toggle</command>
@@ -129,5 +127,20 @@
       </binding>
     </action>
   </animation>
-  
+
+  <animation>
+    <name>Modeswitch</name>
+    <object-name>Mode</object-name>
+    <type>slider</type>
+    <action>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/gps-annunciator/mode</property>
+        <value type="double">0</value> <!-- Nautical -->
+        <value type="double">1</value> <!-- Metric -->
+        <value type="double">2</value> <!-- Imperial -->
+      </binding>
+    </action>
+  </animation>
+
 </PropertyList>

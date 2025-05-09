@@ -1,8 +1,10 @@
+		
 var Gps= {
 
   new: func() {
     var m={parents:[Gps] };
     m.timer=nil;
+    m.unitscales=[1, 1.852, 1.151];	#0 Nautic 1 Metric 2 Imperial
     m.init();
     return m;
   },
@@ -17,12 +19,10 @@ var Gps= {
   	setprop("instrumentation/gps-annunciator/udot",1);
   	setprop("instrumentation/gps-annunciator/ldot",0);
   	setprop("instrumentation/gps-annunciator/light",0);
-    me.timer=maketimer(1, me, me.uppdate);
+  	setprop("instrumentation/gps-annunciator/mode",0);
+    me.timer=maketimer(1, me, me.update);
   },
-  
-  modehandler: func(mode) {
-  },
-  
+   
   calcdigits: func(value, scale) {
     var v=[math.floor(value/100/scale),0,0];
     v[1]=math.floor(value/10/scale-v[0]*10);
@@ -30,8 +30,9 @@ var Gps= {
     return v;
   },
   
-  uppdate: func() {
-  	var speed=getprop("/instrumentation/gps/indicated-ground-speed-kt");
+  update: func() {
+  	var unitscale=me.unitscales[getprop("instrumentation/gps-annunciator/mode")];
+  	var speed=getprop("/instrumentation/gps/indicated-ground-speed-kt")*unitscale;
   	var course=getprop("/instrumentation/gps/indicated-track-true-deg");
   	var u = [0,0,0];
   	var l = [0,0,0];
