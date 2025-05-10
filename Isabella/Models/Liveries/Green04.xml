@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Green 04</name>
+        <texture-boat>Liveries/tex_boatg.png</texture-boat>
+        <texture-sail>Liveries/tex_sail04.png</texture-sail>
+        <texture-equ>Liveries/tex_equg.png</texture-equ>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

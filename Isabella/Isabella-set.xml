@@ -39,7 +39,7 @@
      <path>Models/Isabella-model.xml</path>
      <!--fallback-model-index><Fallback model ID</fallback-model-index-->
      <livery>
-       <file type="string">Red</file>
+       <file type="string">Liveries/Red</file>
      </livery>
     </model>
 

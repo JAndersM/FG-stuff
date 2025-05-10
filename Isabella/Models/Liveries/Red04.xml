@@ -6,9 +6,9 @@
   <model>
     <livery>
       <name type="string">Red 04</name>
-      <texture-boat>tex_boat.png</texture-boat>
-      <texture-sail>tex_sail04.png</texture-sail>
-      <texture-equ>tex_equ.png</texture-equ>
+      <texture-boat>Liveries/tex_boat.png</texture-boat>
+      <texture-sail>Liveries/tex_sail04.png</texture-sail>
+      <texture-equ>Liveries/tex_equ.png</texture-equ>
     </livery>
   </model>
 </sim>
