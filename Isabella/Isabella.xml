@@ -95,67 +95,67 @@
   === Ground reactions =======================================================
   -->
   <ground_reactions>
+      
+    <contact type="STRUCTURE" name="Masthead">
+     <location unit="M">
+      <x>  1.0  </x>
+      <y>  -1.2  </y>
+      <z> 4.5 </z>
+     </location>
+     <static_friction> 0.5 </static_friction>
+     <dynamic_friction> 0.5 </dynamic_friction>
+     <rolling_friction> 1.0 </rolling_friction>
+     <spring_coeff unit="N/M"> 2500 </spring_coeff>
+     <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
+    </contact>
 
-  <contact type="STRUCTURE" name="Masthead">
-   <location unit="M">
-    <x>  1.0  </x>
-    <y>  -1.2  </y>
-    <z> 4.5 </z>
-   </location>
-   <static_friction> 0.5 </static_friction>
-   <dynamic_friction> 0.5 </dynamic_friction>
-   <rolling_friction> 1.0 </rolling_friction>
-   <spring_coeff unit="N/M"> 2500 </spring_coeff>
-   <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
-  </contact>
+    <contact type="BOGEY" name="FrontRunner">
+     <location unit="M">
+      <x>  -2.54  </x>
+      <y>  0.0  </y>
+      <z> -0.236 </z>
+     </location>
+     <static_friction> 2.0 </static_friction>
+     <dynamic_friction> 1.5 </dynamic_friction>
+     <rolling_friction> 0.01 </rolling_friction>
+     <spring_coeff unit="N/M"> 10000 </spring_coeff>
+     <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
+     <max_steer unit="DEG">30</max_steer>
+     <brake_group>NONE</brake_group>
+     <retractable>0</retractable>
+    </contact>
 
-  <contact type="BOGEY" name="FrontRunner">
-   <location unit="M">
-    <x>  -2.54  </x>
-    <y>  0.0  </y>
-    <z> -0.236 </z>
-   </location>
-   <static_friction> 2.0 </static_friction>
-   <dynamic_friction> 1.5 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="N/M"> 10000 </spring_coeff>
-   <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
-   <max_steer unit="DEG">30</max_steer>
-   <brake_group>NONE</brake_group>
-   <retractable>0</retractable>
-  </contact>
+     <contact type="BOGEY" name="LeftRunner">
+     <location unit="M">
+      <x>  1.30  </x>
+      <y>  -1.20  </y>
+      <z> -0.236 </z>
+     </location>
+     <static_friction> 2.0 </static_friction>
+     <dynamic_friction> 1.5 </dynamic_friction>
+     <rolling_friction> 0.01 </rolling_friction>
+     <spring_coeff unit="N/M"> 20000 </spring_coeff>
+     <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
+     <max_steer unit="DEG">0</max_steer>
+     <brake_group>NONE</brake_group>
+     <retractable>0</retractable>
+    </contact>
 
-   <contact type="BOGEY" name="LeftRunner">
-   <location unit="M">
-    <x>  1.30  </x>
-    <y>  -1.20  </y>
-    <z> -0.236 </z>
-   </location>
-   <static_friction> 2.0 </static_friction>
-   <dynamic_friction> 1.5 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="N/M"> 20000 </spring_coeff>
-   <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
-   <max_steer unit="DEG">0</max_steer>
-   <brake_group>NONE</brake_group>
-   <retractable>0</retractable>
-  </contact>
-
-    <contact type="BOGEY" name="RightRunner">
-   <location unit="M">
-    <x>  1.30  </x>
-    <y>  1.20  </y>
-    <z> -0.236 </z>
-   </location>
-   <static_friction> 2.0 </static_friction>
-   <dynamic_friction> 1.5 </dynamic_friction>
-   <rolling_friction> 0.01 </rolling_friction>
-   <spring_coeff unit="N/M"> 20000 </spring_coeff>
-   <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
-   <max_steer unit="DEG">0</max_steer>
-   <brake_group>NONE</brake_group>
-   <retractable>0</retractable>
-  </contact>
+      <contact type="BOGEY" name="RightRunner">
+     <location unit="M">
+      <x>  1.30  </x>
+      <y>  1.20  </y>
+      <z> -0.236 </z>
+     </location>
+     <static_friction> 2.0 </static_friction>
+     <dynamic_friction> 1.5 </dynamic_friction>
+     <rolling_friction> 0.01 </rolling_friction>
+     <spring_coeff unit="N/M"> 20000 </spring_coeff>
+     <damping_coeff unit="N/M/SEC"> 3000 </damping_coeff>
+     <max_steer unit="DEG">0</max_steer>
+     <brake_group>NONE</brake_group>
+     <retractable>0</retractable>
+    </contact>
 
   </ground_reactions>
 

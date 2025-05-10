@@ -11181,7 +11181,7 @@ refs 4
 116 0.56987 0.706599
 kids 0
 OBJECT poly
-name "RunnerL"
+name "RunnerP"
 data 8
 Cube.005
 crease 40.0
@@ -11724,7 +11724,7 @@ refs 6
 3 0.499527 0.097701
 kids 0
 OBJECT poly
-name "RunnerR"
+name "RunnerS"
 data 8
 Cube.006
 crease 40.0

@@ -4,14 +4,19 @@
  
   <fx>
 
-    <runner>
-      <name>Runnersound</name>
+    <runnerF>
+      <name>RunnerFsound</name>
       <mode>looped</mode>
       <path>Sounds/runnerfast.wav</path>
-        <property>/velocities/groundspeed-kt</property>
+        <property>/fdm/jsbsim/gear/unit[1]/compression-ft</property>
       <volume>
-        <property>/velocities/groundspeed-kt</property>
-        <factor>0.05</factor>
+        <expression>
+          <prod>
+            <property>/velocities/groundspeed-kt</property>
+            <property>/fdm/jsbsim/gear/unit[1]/compression-ft</property>
+            <value>0.9</value>
+          </prod>
+        </expression>
       </volume>
       <pitch>
         <property>/velocities/groundspeed-kt</property>
@@ -19,8 +24,67 @@
         <min>0.2</min>
         <max>2.0</max>
       </pitch>
-    </runner>
+      <position>
+        <x>-2.5</x>
+        <y>0</y>
+        <z>0</z>
+      </position>
+    </runnerF>
+    
+    <runnerS>
+      <name>RunnerSsound</name>
+      <mode>looped</mode>
+      <path>Sounds/runnerfast.wav</path>
+        <property>/fdm/jsbsim/gear/unit[3]/compression-ft</property>
+      <volume>
+        <expression>
+          <prod>
+            <property>/velocities/groundspeed-kt</property>
+            <property>/fdm/jsbsim/gear/unit[3]/compression-ft</property>
+            <value>0.9</value>
+          </prod>
+        </expression>
+      </volume>
+      <pitch>
+        <property>/velocities/groundspeed-kt</property>
+        <factor>0.05</factor>
+        <min>0.2</min>
+        <max>2.0</max>
+      </pitch>
+      <position>
+        <x>1.3</x>
+        <y>1.25</y>
+        <z>0</z>
+      </position>
+    </runnerS>
 
+    <runnerP>
+      <name>RunnerPsound</name>
+      <mode>looped</mode>
+      <path>Sounds/runnerfast.wav</path>
+        <property>/fdm/jsbsim/gear/unit[2]/compression-ft</property>
+      <volume>
+        <expression>
+          <prod>
+            <property>/velocities/groundspeed-kt</property>
+            <property>/fdm/jsbsim/gear/unit[2]/compression-ft</property>
+            <value>0.9</value>
+          </prod>
+        </expression>
+      </volume>
+      <pitch>
+        <property>/velocities/groundspeed-kt</property>
+        <factor>0.05</factor>
+        <min>0.2</min>
+        <max>2.0</max>
+      </pitch>
+      <position>
+        <x>1.3</x>
+        <y>-1.25</y>
+        <z>0</z>
+      </position>
+    </runnerP>
+    
     <flap>
       <name>Flapsound</name>
       <mode>once</mode>

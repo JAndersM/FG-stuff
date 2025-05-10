@@ -1,0 +1,62 @@
+<PropertyList>
+	<name>plankflex</name>
+	<inherits-from>Effects/model-wingflex</inherits-from>
+	<parameters>
+		<wingflex-type>0</wingflex-type>
+		<body-width>0.40</body-width>
+		<wing-span>2.5</wing-span>
+		<!--wingflex-z in model file -->
+		<normalmap-enabled type="int"> 0 </normalmap-enabled> <!-- if you want to include a normal map, set this to 1, else 0 -->
+	</parameters>
+
+	<generate>
+		<tangent type="int">6</tangent>
+		<binormal type="int">7</binormal>
+	</generate>
+
+	<technique n="4">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+				</attribute>
+				<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
+
+	<technique n="7">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+					</attribute>
+					<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
+
+	<technique n="9">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+					</attribute>
+					<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
+
+</PropertyList>

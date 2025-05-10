@@ -4,6 +4,26 @@
  
   <path>Isabella.ac</path>
   
+  <!-- ********* Effects ************-->
+  
+  <effect>
+	  <inherits-from>Effects/plankflex</inherits-from>
+	  <object-name>PlankS</object-name>
+	  <object-name>RunnerS</object-name>
+	  <parameters>
+	    	<wingflex-z><use>/gear/stbrd-comp</use></wingflex-z>
+	  </parameters>
+  </effect>
+
+  <effect>
+	  <inherits-from>Effects/plankflex</inherits-from>
+	  <object-name>PlankP</object-name>
+	  <object-name>RunnerP</object-name>
+	  <parameters>
+	    	<wingflex-z><use>/gear/port-comp</use></wingflex-z>
+	  </parameters>
+  </effect>
+  
   <!-- ********** Animations ************** -->
 
   <animation>
