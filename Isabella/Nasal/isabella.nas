@@ -19,6 +19,8 @@ var helper_funcs = func() {
 	setprop("/controls/flight/tack", math.sgn((getprop("/fdm/jsbsim/aero/sail/alpha-deg") or 0)));
 }
 
+aircraft.livery.init("Aircraft/Isabella/Models/Liveries");
+print("Liveries init");
 
 var timer = maketimer(0.1, helper_funcs);
 timer.start();

@@ -37,10 +37,10 @@
 
     <model>
      <path>Models/Isabella-model.xml</path>
-     <!--fallback-model-index><Fallback model ID</fallback-model-index>
+     <!--fallback-model-index><Fallback model ID</fallback-model-index-->
      <livery>
-       <file type="string">*</file>
-     </livery-->
+       <file type="string">Red</file>
+     </livery>
     </model>
 
     <systems>
@@ -82,7 +82,14 @@
     <menubar>
      <default>
       <menu n="100">
-       <label>Isabella</label>
+      <label>Isabella</label>
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.open();</script>
+        </binding>
+      </item>
        <item>
         <label>Show sailor</label>
         <binding>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Blue 01</name>
+      <texture-boat>tex_boatb.png</texture-boat>
+      <texture-sail>tex_sail0t.png</texture-sail>
+      <texture-equ>tex_equb.png</texture-equ>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

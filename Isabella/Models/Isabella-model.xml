@@ -23,8 +23,12 @@
          alias(rplayer.getNode("sim/multiplay/generic/float[1]"));
       rplayer.getNode("controls/flight/beta", 1).
          alias(rplayer.getNode("sim/multiplay/generic/float[2]"));
+      var livery_update = aircraft.livery_update.new("Aircraft/Isabella/Models/Liveries");
      ##############################################################################
     </load>
+    <unload><![CDATA[
+      livery_update.stop();
+    ]]></unload>
   </nasal>
 
   <!-- ********* Effects ************-->
@@ -49,6 +53,42 @@
   
   <!-- ********** Animations ************** -->
 
+  <animation>
+    <type>material</type>
+    <object-name>Hull</object-name>
+    <object-name>Frontboard</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-boat</texture-prop>
+    <texture>Liveries/tex_boat.png</texture>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Mastpoole</object-name>
+    <object-name>Boom</object-name>
+    <object-name>SailS</object-name>
+    <object-name>Mast</object-name>
+    <object-name>SailP</object-name>
+    <object-name>Flag</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-sail</texture-prop>
+    <texture>Liveries/tex_sail.png</texture>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>PlankS</object-name>
+    <object-name>Seat</object-name>
+    <object-name>RunnerF</object-name>
+    <object-name>RunnerP</object-name>
+    <object-name>Tiller</object-name>
+    <object-name>RunnerS</object-name>
+    <object-name>PlankP</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-equ</texture-prop>
+    <texture>Liveries/tex_equ.png</texture>
+  </animation>
+  
   <animation>
       <name>SteerSkate</name>
       <object-name>RunnerF</object-name>
