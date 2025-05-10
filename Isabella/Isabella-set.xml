@@ -69,10 +69,15 @@
 
     <help include="help.xml"/>
 
-    <!--multiplay>
-     <generic>
-     </generic>
-    </multiplay-->
+    <multiplay>
+      <generic>
+        <bool n="0" alias="/controls/pilot"/>
+        <bool n="1" alias="/controls/gps"/>
+        <float n="0" alias="/controls/flight/tack"/>
+        <float n="1" alias="/fdm/jsbsim/fcs/sail-angle-deg"/>
+        <float n="2" alias="/controls/flight/beta"/>
+      </generic>
+    </multiplay>
 
     <menubar>
      <default>

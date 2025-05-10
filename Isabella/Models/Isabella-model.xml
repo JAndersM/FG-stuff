@@ -3,7 +3,30 @@
 <PropertyList>
  
   <path>Isabella.ac</path>
-  
+
+  <!-- Multiplay -->
+  <nasal>
+    <load>
+     ##############################################################################
+     # The on-load Nasal is not executed when this file is loaded as the user
+     # aircraft.
+     ##############################################################################
+      var rplayer = cmdarg();
+      # Set up property aliases for animations.
+      rplayer.getNode("controls/pilot", 1).
+       alias(rplayer.getNode("sim/multiplay/generic/bool[0]"));
+      rplayer.getNode("controls/gps", 1).
+       alias(rplayer.getNode("sim/multiplay/generic/bool[1]"));
+      rplayer.getNode("controls/flight/tack", 1).
+       alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
+      rplayer.getNode("fdm/jsbsim/fcs/sail-angle-deg", 1).
+         alias(rplayer.getNode("sim/multiplay/generic/float[1]"));
+      rplayer.getNode("controls/flight/beta", 1).
+         alias(rplayer.getNode("sim/multiplay/generic/float[2]"));
+     ##############################################################################
+    </load>
+  </nasal>
+
   <!-- ********* Effects ************-->
   
   <effect>
@@ -67,7 +90,7 @@
     <type>select</type>
     <condition>
        <greater-than>
-          <property>/fdm/jsbsim/aero/sail/alpha-deg</property>
+          <property>/controls/flight/tack</property>
           <value>0</value>
        </greater-than>
     </condition>
@@ -78,7 +101,7 @@
     <type>select</type>
     <condition>
        <less-than-equals>
-          <property>/fdm/jsbsim/aero/sail/alpha-deg</property>
+          <property>/controls/flight/tack</property>
           <value>0</value>
        </less-than-equals>
     </condition>
@@ -112,7 +135,7 @@
     <expression>
       <sum>
         <product>
-          <property>/fdm/jsbsim/aero/mybeta-deg</property>
+          <property>/controls/flight/beta</property>
           <value>-1</value>
         </product>
         <property>/fdm/jsbsim/fcs/sail-angle-deg</property>
