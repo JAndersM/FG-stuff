@@ -203,7 +203,7 @@ class FG_OT_Effects_Operator(bpy.types.Operator):
         selection = bpy.context.selected_objects
         text="<effect>\n    <inherits-from>"+myprops.inherits+"</inherits-from>\n"
         for obj in selection:
-            text=text+"    <object-name>"+obj.name+"<object-name>\n"
+            text=text+"    <object-name>"+obj.name+"</object-name>\n"
         text=text+"</effect>\n"
         export(myprops.file, text)
         return {'FINISHED'}   
