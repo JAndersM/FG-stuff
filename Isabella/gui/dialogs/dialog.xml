@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>Settings</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Isabella settings</label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+    <halign>left</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+    
+    <checkbox>
+      <width>12</width>
+      <height>12</height>
+      <property>/controls/pilot</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/pilot</property>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label>Show sailor</label>
+    </text>
+  </group> 
+ 
+   <group>
+    <layout>hbox</layout>
+    <halign>left</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+    
+    <checkbox>
+      <width>12</width>
+      <height>12</height>
+      <property>/controls/gps</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gps</property>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label>Show GPS</label>
+    </text>
+  </group>
+
+  <group>
+    <layout>hbox</layout>
+    <halign>left</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+    
+    <checkbox>
+      <width>12</width>
+      <height>12</height>
+      <property>/controls/push</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/push</property>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label>Limit push</label>
+    </text>
+  </group>
+  
+  <group>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+    
+    <button>
+      <legend>Exit</legend>
+      <default>true</default>
+      <equal>true</equal>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+  
+</PropertyList>

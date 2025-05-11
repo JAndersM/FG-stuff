@@ -22,7 +22,21 @@ var helper_funcs = func() {
 aircraft.livery.init("Aircraft/Isabella/Models/Liveries");
 print("Liveries init");
 
+#Called when s is pressed
+var initpush = func {
+	setprop("/fdm/jsbsim/external_reactions/start-push/magnitude",50);
+	if (pushtimer.isRunning == 0 and getprop("/controls/push") == 1) { pushtimer.start();}
+}
+
+#Called when s is released or time runs out
+var stoppush= func {
+	setprop("/fdm/jsbsim/external_reactions/start-push/magnitude",0);
+	if (pushtimer.isRunning == 1) { pushtimer.stop();}
+}
+
+var pushtimer = maketimer(2.5, stoppush);
+pushtimer.simulatedTime=1;
 var timer = maketimer(0.1, helper_funcs);
 timer.start();
-print("Nasal: Helper start");
+print("Isabella: Helper functions start");
 

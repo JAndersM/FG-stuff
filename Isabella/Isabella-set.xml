@@ -91,17 +91,10 @@
         </binding>
       </item>
        <item>
-        <label>Show sailor</label>
+        <label>Settings</label>
         <binding>
-          <command>property-toggle</command>
-          <property>/controls/pilot</property>
-        </binding>
-       </item>
-       <item>
-        <label>Show GPS</label>
-        <binding>
-          <command>property-toggle</command>
-          <property>/controls/gps</property>
+          <command>dialog-show</command>
+          <dialog-name>Settings</dialog-name>
         </binding>
        </item>
       </menu>
@@ -121,6 +114,7 @@
   <controls>
     <pilot type="bool">false</pilot>
     <gps type="bool">false</gps>
+    <push type="bool">true</push>
   </controls>
 
   <systems>
@@ -153,15 +147,13 @@
       <name>s</name>
       <desc>Start push</desc>
     <binding>
-      <command>property-assign</command>
-      <property>/fdm/jsbsim/external_reactions/start-push/magnitude</property>
-      <value>50</value>
+      <command>nasal</command>
+      <script>Isabella.initpush();</script>
     </binding>
     <mod-up>
       <binding>
-        <command>property-assign</command>
-        <property>/fdm/jsbsim/external_reactions/start-push/magnitude</property>
-        <value>0</value>
+        <command>nasal</command>
+        <script>Isabella.stoppush();</script>
       </binding>
     </mod-up>
     </key>

@@ -25,9 +25,9 @@ def makedirs(plane_name):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-    dirs = ["Models", "Effects", "Systems",
+    dirs = ["Models", "Models/Liveries", "Effects", "Systems",
             "Sounds", "Engines", "Instruments",
-            "Resources", "Nasal", "Previews"]
+            "Resources", "Nasal", "Previews", "gui", "gui/dialogs"]
     for d in dirs:
         try:
             os.mkdir(plane_name + "/" + d)
@@ -44,7 +44,7 @@ def makeset(plane_name, plane_description):
     root=tree.getroot()
     changes= {"description" : plane_description,
               "aero" : plane_name,
-              "model/path": "Model/"+plane_name + "-model.xml",
+              "model/path": "Models/"+plane_name + "-model.xml",
               }
     for key in changes.keys() :
         desc=tree.xpath("/PropertyList/sim/"+key)
@@ -60,7 +60,8 @@ def populate(plane_name) :
         "instruments.xml" : "/Instruments/instruments.xml",
         "sounds.xml": "/Sounds/sounds.xml",
         "systems.xml": "/Systems/systems.xml",
-        "model.xml": "/Models/"+plane_name+"-model.xml"
+        "model.xml": "/Models/"+plane_name+"-model.xml",
+        "livery.xml": "/Models/Liveries/livery.xml"
         }
     for key in fs.keys() :
         try:
@@ -70,7 +71,6 @@ def populate(plane_name) :
             print("Permission denied.")
         except:
             print("Error occurred while copying file.")
-    shutil.copy("aircraftfiles/tumbnail.jpg", plane_name+"/thumbnail.jpg")
 
 def jsbsim(plane_name, plane_description) :
     tree = ET.parse("aircraftfiles/jsbsim.xml")
