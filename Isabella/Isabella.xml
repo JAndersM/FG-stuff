@@ -121,7 +121,7 @@
      <spring_coeff unit="N/M"> 10000 </spring_coeff>
      <damping_coeff unit="N/M/SEC"> 2000 </damping_coeff>
      <max_steer unit="DEG">30</max_steer>
-     <brake_group>NONE</brake_group>
+     <brake_group>CENTER</brake_group>
      <retractable>0</retractable>
     </contact>
 

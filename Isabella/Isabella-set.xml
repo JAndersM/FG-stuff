@@ -157,6 +157,14 @@
       </binding>
     </mod-up>
     </key>
+    <key n="98">
+      <name>b</name>
+      <desc>Inhibit break</desc>
+    <binding>
+      <command>nasal</command>
+      <script>print("Break");</script>
+    </binding>
+    </key>
     </keyboard>
   </input>
 
