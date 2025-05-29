@@ -40,3 +40,15 @@ var timer = maketimer(0.1, helper_funcs);
 timer.start();
 print("Isabella: Helper functions start");
 
+var placetrack = func(position, winddirection) {
+	var pathround = 'Models/Marks/roundingmark.ac';
+	var pathstart = 'Models/Marks/startline.ac';
+	var pathfinish = 'Models/Marks/finishmark.ac';
+	var start = geo.put_model(pathstart, position.apply_course_distance(winddirection, 10), 0);
+	var roundd=geo.put_model(pathround, position.apply_course_distance(winddirection, 100),0);
+	var roundu = geo.put_model(pathround, position.apply_course_distance(winddirection, 1000),0);
+	position.apply_course_distance(winddirection, -1000);
+	var finish = geo.put_model(pathfinish, position.apply_course_distance(winddirection-90, 60), 0);
+}
+
+#placetrack(geo.aircraft_position(), 0);

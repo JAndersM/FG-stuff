@@ -70,6 +70,27 @@
       <label>Limit push</label>
     </text>
   </group>
+
+  <group>
+    <layout>hbox</layout>
+    <halign>fill</halign>
+    <default-padding>10</default-padding>
+    <empty><stretch>true</stretch></empty>
+    
+    <button>
+      <legend>Add track</legend>
+      <default>true</default>
+      <equal>true</equal>
+      <binding>
+        <command>nasal</command>
+        <script>
+          Isabella.placetrack(geo.aircraft_position(), getprop("environment/wind-from-heading-deg"));
+        </script>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
   
   <group>
     <layout>hbox</layout>
