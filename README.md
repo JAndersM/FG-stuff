@@ -22,7 +22,10 @@ Print axis coords from Blender. Useful for gltf export that doesn't handle axis 
 # Make Plane
 Creates and populates an aircraft directory structure
 
+Installation: download the aircraftfiles directory and makeplane.py
+
 Usage: pyton3 makeplane.py aircraft_name "Aircraft description"
+
 
 Needs the lmxl python3 library
 
