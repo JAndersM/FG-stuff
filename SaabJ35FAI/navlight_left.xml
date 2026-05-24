@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <path>/Models/Effects/procedural_light.ac</path>
+
+    <!-- Intensity controlled in .eff file -->
+    <animation>
+      <type>select</type>
+      <object-name>procedural_light</object-name>
+      <condition>
+          <property>controls/lighting/nav-lights</property>
+          <greater-than>
+            <property>controls/lighting/nav-lights</property>
+            <value>0</value>
+        </greater-than>
+      </condition>
+  </animation>
+
+ <animation>
+    <type>noshadow</type>
+    <object-name>procedural_light</object-name>
+ </animation>
+ 
+    <effect>
+        <inherits-from>Effects/draken-light-nav-left</inherits-from>
+        <object-name>procedural_light</object-name>
+    </effect>
+
+</PropertyList>
+

@@ -1,0 +1,738 @@
+<?xml version="1.0"?>
+
+<!--
+Draken MP/AI model version 
+Anders  M
+
+        <int n="0" alias="/fdm/jsbsim/fcs/drag-chute-deployed"/>
+        <int n="10" alias="/ai/submodels/ADEN"/>
+        <bool n="0" alias="/engines/engine[0]/augmentation"/>
+        <bool n="1" alias="/consumables/droptanks"/>
+        <bool n="2" alias="controls/lighting/landing-lightL"/>
+        <bool n="3" alias="controls/lighting/landing-lightR"/>
+        <float n="0" alias="/controls/canopy/position-norm"/>
+        <float n="1" alias="fdm/jsbsim/aero/alpha-deg"/>
+        <float n="2" alias="fdm/jsbsim/aero/beta-deg"/>
+        <float n="3" alias="gear/gear[0]/steering-norm"/>
+        <float n="4" alias="gear/gear[0]/rollspeed-ms"/>
+        <float n="5" alias="/rendering/nav-lights-factor"/>
+-->
+
+<PropertyList>
+ 
+ <path>draken_simplified.ac</path>
+ 
+
+<!-- ************ Cockpit animations *********** --> 
+<!-- Canopy -->
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_canopy</object-name>
+  <property>sim/multiplay/generic/float[0]</property>
+  <factor>55</factor>
+  <center>
+   <x-m>-2.7165</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.2040</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+ <!-- ********** Aerosurfaces, gears ************** -->
+ 
+<!-- Surfaces -->
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_seitenruder</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>6.069</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.93339</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_elevon_left</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>25</factor>  
+  <center>
+   <x-m>5.246</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.241</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_quer_left</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>25</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>5.288</x-m>
+   <y-m>-3.23</y-m>
+   <z-m>0.236</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_elevon_right</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>25</factor>  
+  <center>
+   <x-m>5.246</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.241</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_quer_right</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>25</factor>
+  <offset-deg>0</offset-deg>   
+  <center>
+   <x-m>5.297</x-m>
+   <y-m>3.28</y-m>
+   <z-m>0.236</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <!-- Speed brakes -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_airbrake_right</object-name>
+  <property>surface-positions/speedbrake-pos-norm</property>
+  <factor>60</factor>
+  <offset-deg>0</offset-deg>   
+  <axis>   
+   <x1-m>4.8795</x1-m>
+   <y1-m>0.5890</y1-m>
+   <z1-m>0.8820</z1-m>
+   <x2-m>4.8795</x2-m>
+   <y2-m>0.2714</y2-m>
+   <z2-m>1.0700</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_airbrake_left</object-name>
+  <property>surface-positions/speedbrake-pos-norm</property>
+  <factor>-60</factor>
+  <offset-deg>0</offset-deg>   
+  <axis>   
+   <x1-m>4.8792</x1-m>
+   <y1-m>-0.5860</y1-m>
+   <z1-m>0.8820</z1-m>
+   <x2-m>4.8792</x2-m>
+   <y2-m>-0.2684</y2-m>
+   <z2-m>1.0700</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_lairbrake_left</object-name>
+  <property>surface-positions/speedbrake-pos-norm</property>
+  <factor>60</factor>
+  <offset-deg>0</offset-deg>   
+  <axis>   
+   <x1-m>4.8721</x1-m>
+   <y1-m>-0.52357</y1-m>
+   <z1-m>-0.04717</z1-m>
+   <x2-m>4.8744</x2-m>
+   <y2-m>-0.46254</y2-m>
+   <z2-m>-0.11811</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_lairbrake_right</object-name>
+  <property>surface-positions/speedbrake-pos-norm</property>
+  <factor>-60</factor>
+  <offset-deg>0</offset-deg>   
+  <axis>   
+   <x1-m>4.8721</x1-m>
+   <y1-m>0.54578</y1-m>
+   <z1-m>-0.04291</z1-m>
+   <x2-m>4.8744</x2-m>
+   <y2-m>0.48324</y2-m>
+   <z2-m>-0.11664</z2-m>
+  </axis>
+ </animation>
+
+<!-- Gears -->
+ 
+ <!-- nose wheel -->
+ 
+ <animation>
+  <type>translate</type>
+  <object-name>draken_wheel_front</object-name>
+  <object-name>draken_gear_front</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.32</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.14</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_front</object-name>
+  <object-name>draken_gear_front</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <factor>-110</factor>
+  <offset-deg>110</offset-deg>   
+  <center>
+   <x-m>-1.96</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.15</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_front</object-name>
+  <object-name>draken_gear_front</object-name>
+  <property>sim/multiplay/generic/float[3]</property>
+  <factor>-22</factor>   
+  <center>
+   <x-m>-2.061</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.137</z-m>
+  </center>
+  <axis>
+   <x>0.16505</x>
+   <y>0</y>
+   <z>0.98626</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_front</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m>-2.2242</x-m>
+      <y-m>0.000</y-m>
+      <z-m>-1.1561</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+ </animation>
+  
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wdf_right</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.6</ind><dep>170.0</dep></entry>
+     <entry><ind>1.0</ind><dep>170.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-2.46</x-m>
+   <y-m>0.217</y-m>
+   <z-m>-0.26</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>draken_wdf_left</object-name>
+  <property>gear/gear[0]/position-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.6</ind><dep>-170.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-170.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-2.67</x-m>
+   <y-m>-0.20</y-m>
+   <z-m>-0.27</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <!-- left wheel -->
+ 
+ <!--animation>
+  <type>translate</type>
+  <object-name>draken_wheel_left</object-name>
+  <object-name>draken_gear_left</object-name>
+  <property>gear/gear[1]/compression-ft</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.225</ind><dep>0.0</dep></entry>
+     <entry><ind>0.5</ind><dep>0.084</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation-->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_left</object-name>
+  <object-name>draken_gear_left</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-87</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <center>
+   <x-m>1.905</x-m>
+   <y-m>-0.84</y-m>
+   <z-m>-0.12</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_left</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor>-24.23</factor>
+    <center>
+      <x-m>1.90038</x-m>
+      <y-m>-1.1896</y-m>
+      <z-m>-0.8657</z-m>
+    </center>
+    <axis>
+     <x>0</x>
+     <y>0.998421</y>
+     <z>-0.056170</z>
+    </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wdl_right</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.25</ind><dep>5.0</dep></entry>
+     <entry><ind>1.0</ind><dep>86.0</dep></entry>
+  </interpolation>  
+  <center>
+   <x-m>1.8054</x-m>
+   <y-m>-0.89043</y-m>
+   <z-m>-0.03121</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>draken_wdl_left</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.2</ind><dep>-90.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <center>
+   <x-m>1.92</x-m>
+   <y-m>-2.07136</y-m>
+   <z-m>0.17130</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  
+ <!-- right wheel -->
+
+ <!--animation>
+  <type>translate</type>
+  <object-name>draken_wheel_right</object-name>
+  <object-name>draken_gear_right</object-name>
+  <property>gear/gear[2]/compression-ft</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.225</ind><dep>0.0</dep></entry>
+     <entry><ind>0.5</ind><dep>0.084</dep></entry>
+  </interpolation>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation-->
+ 
+<animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_right</object-name>
+  <object-name>draken_gear_right</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>87.0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <center>
+   <x-m>1.9054</x-m>
+   <y-m>0.84</y-m>
+   <z-m>-0.12</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>draken_wheel_right</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor>-24.43</factor>
+    <center>
+      <x-m>1.89981</x-m>
+      <y-m>1.19112</y-m>
+      <z-m>-0.8657</z-m>
+    </center>
+    <axis>
+     <x>0</x>
+     <y>0.998421</y>
+     <z>0.056170</z>
+    </axis>
+ </animation>
+  
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wdr_left</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.25</ind><dep>-5.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-86.0</dep></entry>
+  </interpolation>   
+  <center>
+   <x-m>1.7811</x-m>
+   <y-m>0.888</y-m>
+   <z-m>-0.02481</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>draken_wdr_right</object-name>
+  <property>gear/gear[2]/position-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.2</ind><dep>90.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>   
+  <center>
+   <x-m>1.98046</x-m>
+   <y-m>2.07066</y-m>
+   <z-m>0.14899</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- tail wheel -->
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_back</object-name>
+  <property>gear/gear[3]/position-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>-30.0</dep></entry>
+     <entry><ind>0.4</ind><dep>-30.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>   
+  <center>
+   <x-m>5.076</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.263</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <!--animation>
+  <type>rotate</type>
+  <object-name>draken_wheel_back</object-name>
+  <property>gear/gear[3]/compression-ft</property>
+  <factor>-18</factor>
+    <center>
+   <x-m>5.076</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.263</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation-->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_bw_right</object-name>
+  <property>gear/gear[3]/position-norm</property>
+  <factor>90</factor>
+  <offset-deg>0</offset-deg>   
+    <axis>
+     <x1-m>5.515</x1-m>
+     <y1-m>0.215</y1-m>
+     <z1-m>-0.240</z1-m>
+     <x2-m>6.023</x2-m>
+     <y2-m>0.218</y2-m>
+     <z2-m>-0.174</z2-m>
+    </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>draken_bw_left</object-name>
+  <property>gear/gear[3]/position-norm</property>
+  <factor>-90</factor>
+  <offset-deg>0</offset-deg>   
+    <axis>
+     <x1-m>5.515</x1-m>
+     <y1-m>-0.215</y1-m>
+     <z1-m>-0.238</z1-m>
+     <x2-m>6.023</x2-m>
+     <y2-m>-0.220</y2-m>
+     <z2-m>-0.174</z2-m>
+    </axis>
+ </animation> 
+ 
+ <!-- External lights -->
+ 
+ 
+ <model>
+  <name>Navlight_left</name>
+  <path>navlight_left.xml</path>
+   <offsets>
+      <x-m> 1.45 </x-m>
+      <y-m> -2.375 </y-m>
+      <z-m> 0.22 </z-m>
+   </offsets> 
+ </model>
+
+ <model>
+  <name>Navlight_right</name>
+  <path>navlight_right.xml</path>
+   <offsets>
+      <x-m> 1.485 </x-m>
+      <y-m> 2.375 </y-m>
+      <z-m> 0.22 </z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <name>Navlight_tail_L</name>
+  <path>navlight_tail.xml</path>
+   <offsets>
+      <x-m> 6.32 </x-m>
+      <y-m> -0.80 </y-m>
+      <z-m> 0.275 </z-m>
+   </offsets> 
+ </model>
+
+ <model>
+  <name>Navlight_tail_R</name>
+  <path>navlight_tail.xml</path>
+   <offsets>
+      <x-m> 6.32 </x-m>
+      <y-m> 0.80 </y-m>
+      <z-m> 0.275 </z-m>
+   </offsets> 
+ </model>
+
+ <!--model>
+  <name>AntiColl_top</name>
+  <path>Light/anticoll_light.xml</path>
+   <offsets>
+      <x-m> 6.27 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 3.08 </z-m>
+   </offsets> 
+ </model>
+
+ <model>
+  <name>AntiColl_bottom</name>
+  <path>Light/anticoll_light.xml</path>
+   <offsets>
+      <x-m> 5.07 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> -0.35 </z-m>
+   </offsets> 
+ </model-->
+
+ <model>
+  <name>LandingLight_left</name>
+  <path>landing_light_L.xml</path>
+   <offsets>
+      <x-m> 1.55 </x-m>
+      <y-m> -1.05 </y-m>
+      <z-m> -0.35 </z-m>
+   </offsets> 
+ </model>
+
+ <model>
+  <name>LandingLight_right</name>
+  <path>landing_light_R.xml</path>
+   <offsets>
+      <x-m> 1.55 </x-m>
+      <y-m> 1.05 </y-m>
+      <z-m> -0.35 </z-m>
+   </offsets>
+ </model>
+
+ <!--     *********Droptanks******** -->
+
+ <animation>
+  <object-name>draken_left_droptank</object-name>
+  <object-name>draken_right_droptank</object-name>
+  <type>select</type>
+  <condition>
+    <property>sim/multiplay/generic/bool[1]</property>
+  </condition>
+ </animation>
+
+<!--   ***********Exhaust************ -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>draken_exhaust</object-name>
+  <property>engines/engine[0]/n1</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>29</ind><dep>0.0</dep></entry>
+     <entry><ind>30</ind><dep>-0.5</dep></entry>
+     <entry><ind>100</ind><dep>-0.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>draken_exhaust</object-name>
+  <condition>
+   <greater-than>
+    <property>engines/engine[0]/n1</property>
+    <value>29</value>
+   </greater-than>
+  </condition>
+  <emission>
+   <red>0.008</red>
+   <green>0.003</green>
+   <blue>0.003</blue>
+   <factor-prop>engines/engine[0]/n1</factor-prop>
+  </emission>
+ </animation>
+
+ <model>
+  <name>Afterburner</name>
+  <path>afterburner.xml</path>
+ </model>
+
+<!--  Drag parachute  -->
+
+ <model>
+  <name>Drag Chute</name>
+  <path>chuteAI.xml</path>
+   <offsets>
+      <x-m> 7.12 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 1.15 </z-m>
+      <pitch-deg>-4</pitch-deg>
+   </offsets>
+ </model>
+    
+</PropertyList>
