@@ -22,14 +22,17 @@ Print axis coords from Blender. Useful for gltf export that doesn't handle axis 
 # Make Plane
 Creates and populates an aircraft directory structure
 
+Installation: download the aircraftfiles directory and makeplane.py
+
 Usage: pyton3 makeplane.py aircraft_name "Aircraft description"
+
 
 Needs the lmxl python3 library
 
 # Photo area
 Runs creator.py ( https://github.com/nathanielwarner/flightgear-photoscenery/blob/master/creator.py ) over a specified "rectangular" area: python3 photoarea.py lat0 lon0 lat1 lon1
 
-Obs: write path to your photoscenery folder on the last line befor using the program.
+Obs: Before running the program first time change the <path to folder> on the last line of the program to the relative path to your photoscenery folder.
 
 Note. You need to change tile width function below 22 latitude
 
