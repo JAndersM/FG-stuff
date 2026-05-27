@@ -3,8 +3,29 @@ Isabella iceboat model
 
 
 # FG tools
-Blender add-on for animation, effects and modelplacing
+An add-on for Blender that helps with exporting animations, effects and models. It also adds an axis object that can be used in animations.
+Exports either to system console or export.xml placed in the blend file directory.
 
+Adds:
+
+An FG Tools tab right hand side 3D view
+
+An Axis Mesh object in the Add menu
+
+
+Animations:
+
+Select all objects that you want animated. Make the one used for center or axis the active one. (Selected last)
+Choose animation type etc.
+
+Choose axis. If the Active object is an Axis it will be used as center and axis ignoring the axis selected. You can choose Axis: export it as an axis-object or its vertices coordinates.
+
+The active objects origin will be used as center.
+
+
+Effects and model placement:
+
+The selected objects will be exported in xml-tags for effect respective model.
 
 # Add Axis
 Blender axis object
