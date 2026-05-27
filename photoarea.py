@@ -11,24 +11,25 @@ lon1=float(sys.argv[4])
 
 
 def tile_width(lat_floor):
-    if lat_floor<22:
+    lf=abs(lat_floor)
+    if lf<22:
        return 0.125
-    if lat_floor>=22 and lat_floor<62:
+    if lf>=22 and lf<62:
        return 0.25
-    if lat_floor>=62 and lat_floor<76:
+    if lf>=62 and lf<76:
        return 0.5
     return NaN
    
 nlat=math.ceil((lat1-lat0)/0.125)
-nlon=math.ceil((lon1-lon0)/tile_width(abs(lat0)))
+nlon=math.ceil((lon1-lon0)/tile_width(lat0))
 
 indexl=[]
 for i in range(nlat):
     for j in range(nlon):
         lat=lat0+i*0.125
-        lon=lon0+j*tile_width(abs(lat0))
+        lon=lon0+j*tile_width(lat0)
         base_y = math.floor(lat)
-        tw=tile_width(abs(base_y))
+        tw=tile_width(base_y)
         y = math.trunc((lat - base_y) * 8)
         base_x = math.floor(math.floor(lon / tw) * tw)
         x = math.floor((lon - base_x) / tw)
@@ -38,7 +39,11 @@ for i in range(nlat):
 #Remove doubles
 indexl=list( dict.fromkeys(indexl) )
 print(indexl)
-
-for index in indexl:
-    subprocess.run(["python3","creator.py", "--scenery_folder", "Photo", "--index",str(index) ], capture_output=False, text=True)
+print()
+print(f"Download will take ~{len(indexl)} min and download ~{len(indexl)*12} MB")
+a=input("Start download [J/N]:")
+if a.lower()=="j" :
+    for index in indexl:
+        print("\nTile:", index)
+        subprocess.run(["python3","creator.py", "--scenery_folder", "Photo", "--index",str(index) ], capture_output=False, text=True)
    
