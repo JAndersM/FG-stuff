@@ -3,38 +3,59 @@ import csv
 import subprocess
 
 #Read from csv
+# rows with lat, lon
 coord=[]
 with open('route.csv') as f:
     reader = csv.reader(f, delimiter=',')
     for row in reader:
-        coord.append([row[0],row[1]])
+        print(row)
+        if len(row)==2:
+            coord.append([float(row[0]),float(row[1])])
 
 print(coord)
 #Change tile_width for different latitudes
 #https://wiki.flightgear.org/Tile_Index_Scheme
 
 def tile_width(lat_floor):
-   if lat_floor>=22 and lat_floor<62:
+    lf=abs(lat_floor)
+    if lf<22:
+       return 0.125
+    if lf>=22 and lf<62:
        return 0.25
-   if lat_floor>=62 and lat_floor<76:
+    if lf>=62 and lf<76:
        return 0.5
-   return NaN
-   
-indexl=[]
-for crd in coord:
-    lat=float(crd[0])
-    lon=float(crd[1])
+    return NaN
+
+def findindex(lat, lon):
     base_y = math.floor(lat)
     tw=tile_width(base_y)
     y = math.trunc((lat - base_y) * 8)
     base_x = math.floor(math.floor(lon / tw) * tw)
     x = math.floor((lon - base_x) / tw)
     index=(int(lon + 180) << 14) + (int(lat + 90) << 6) + (y << 3) + x
-    indexl.append(index)
+    return index
+    
+indexl=[]
+for crd in coord:
+    tw=tile_width(math.floor(crd[0]))
+    indexl.append(findindex(crd[0]+0.125,crd[1]-tw))
+    indexl.append(findindex(crd[0]+0.125,crd[1]))
+    indexl.append(findindex(crd[0]+0.125,crd[1]+tw))
+    indexl.append(findindex(crd[0],crd[1]-tw))
+    indexl.append(findindex(crd[0],crd[1]))
+    indexl.append(findindex(crd[0],crd[1]+tw))
+    indexl.append(findindex(crd[0]-0.125,crd[1]-tw))
+    indexl.append(findindex(crd[0]-0.125,crd[1]))
+    indexl.append(findindex(crd[0]-0.125,crd[1]+tw))
 
 #Remove doubles
 indexl=list( dict.fromkeys(indexl) )
 print(indexl)
-
-for index in indexl:
-    subprocess.run(["python3","creator.py", "--scenery_folder", "<path to folder>", "--index",str(index) ], capture_output=False, text=True)
+print()
+print(f"Download will take ~{len(indexl)} min and download ~{len(indexl)*12} MB")
+a=input("Start download [J/N]:")
+if a.lower()=="j" :
+    for index in indexl:
+        print("\nTile:", index)
+        subprocess.run(["python3","creator.py", "--scenery_folder", "Photo", "--index", str(index) ], capture_output=False, text=True)
+   
