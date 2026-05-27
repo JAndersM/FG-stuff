@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+ <sim>
+
+  <description>Saab J 21</description>
+  <author>JAnders M</author>
+  <tags>
+    <tag n="0">WWII</tag>
+    <tag n="1">propeller</tag>
+    <tag n="2">fighter</tag>
+ </tags>
+ <minimum-fg-version>2024.1.0</minimum-fg-version>
+
+ <compatibility>
+   <pbr-model>true</pbr-model>
+ </compatibility>
+ 
+ <flight-model>jsb</flight-model>
+ <aero>J21</aero>
+ 
+ <model>
+  <path>Model/j21-model-gltf.xml</path>
+  <!--path>Model/j21-model-ac.xml</path-->
+ </model>
+
+ <virtual-cockpit archive="y">true</virtual-cockpit>
+ <allow-toggle-cockpit archive="y">false</allow-toggle-cockpit>
+    
+ <view n="0">
+  <internal archive="y">true</internal>
+   <config>
+    <pitch-offset-deg>0</pitch-offset-deg>
+    <x-offset-m archive="y">0.0</x-offset-m>
+    <y-offset-m archive="y">0.45</y-offset-m>
+    <z-offset-m archive="y">-1.33</z-offset-m>
+   </config>
+ </view>
+     
+</sim>
+</PropertyList>

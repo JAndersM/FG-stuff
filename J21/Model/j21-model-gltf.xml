@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<PropertyList>
+ 
+ <path>j21.gltf</path>
+
+<!-- ***** Propeller ***** -->
+	
+<animation>
+		<type>spin</type>
+		<object-name>Spinner</object-name>
+		<object-name>Propeller</object-name>
+		<property>engines/engine/rpm</property>
+		<factor>0.68</factor>
+  <center>
+    <x-m> 2.1131 </x-m>
+    <y-m> 0.0000 </y-m>
+    <z-m> 0.0037 </z-m>
+  </center>
+  <axis>
+    <x-m> 1.0000 </x-m>
+    <y-m> 0.0000 </y-m>
+    <z-m> 0.0000 </z-m>
+  </axis>
+
+	</animation>
+
+	<!--animation>
+		<type>select</type>
+		<object-name>Propeller</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>800</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Prop_disk</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>800</value>
+			</greater-than>
+		</condition>
+	</animation-->
+
+<!-- ********** Aerosurfaces, gears ************** -->
+ 
+<!-- Surfaces -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder_R</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>25</factor>
+  <axis>
+    <x1-m> 5.6526 </x1-m>
+    <y1-m> 1.7137 </y1-m>
+    <z1-m> -0.5000 </z1-m>
+    <x2-m> 5.6526 </x2-m>
+    <y2-m> 1.7137 </y2-m>
+    <z2-m> 0.5000 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder_L</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>-25</factor>
+  <axis>
+    <x1-m> 5.6526 </x1-m>
+    <y1-m> -1.7137 </y1-m>
+    <z1-m> 0.5000 </z1-m>
+    <x2-m> 5.6526 </x2-m>
+    <y2-m> -1.7137 </y2-m>
+    <z2-m> -0.5000 </z2-m>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>Aileron_R</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>20</factor>
+  <axis>
+    <x1-m> 1.0222 </x1-m>
+    <y1-m> 3.9823 </y1-m>
+    <z1-m> -0.3907 </z1-m>
+    <x2-m> 1.1784 </x2-m>
+    <y2-m> 4.9679 </y2-m>
+    <z2-m> -0.3263 </z2-m>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>Aileron_L</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>-20</factor>
+  <axis>
+    <x1-m> 1.0222 </x1-m>
+    <y1-m> -3.9823 </y1-m>
+    <z1-m> -0.3907 </z1-m>
+    <x2-m> 1.1784 </x2-m>
+    <y2-m> -4.9679 </y2-m>
+    <z2-m> -0.3263 </z2-m>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Elevator</object-name>
+  <property>surface-positions/elevator-pos-norm</property>
+  <factor>-20</factor>
+  <axis>
+    <x1-m> 5.6534 </x1-m>
+    <y1-m> 0.5000 </y1-m>
+    <z1-m> -0.0347 </z1-m>
+    <x2-m> 5.6534 </x2-m>
+    <y2-m> -0.5000 </y2-m>
+    <z2-m> -0.0347 </z2-m>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>rotate</type>
+  <object-name>Flap_R</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>25</factor>
+  <axis>
+    <x1-m> 0.7455 </x1-m>
+    <y1-m> 2.2088 </y1-m>
+    <z1-m> -0.5066 </z1-m>
+    <x2-m> 0.9145 </x2-m>
+    <y2-m> 3.1923 </y2-m>
+    <z2-m> -0.4423 </z2-m>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>Flap_L</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>-25</factor>
+  <axis>
+    <x1-m> 0.7455 </x1-m>
+    <y1-m> -2.2088 </y1-m>
+    <z1-m> -0.5066 </z1-m>
+    <x2-m> 0.9145 </x2-m>
+    <y2-m> -3.1923 </y2-m>
+    <z2-m> -0.4423 </z2-m>
+  </axis>
+ </animation>
+
+ <!-- **************  Gears ****************** -->
+ 
+ <!-- Nose -->	
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FWheel</object-name>
+  <object-name>FWLGear</object-name>
+  <object-name>FWGear</object-name>
+  <object-name>FWRod</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>104</dep></entry>
+     <entry><ind>0.25</ind><dep>100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> -3.4751 </x1-m>
+    <y1-m> 0.5020 </y1-m>
+    <z1-m> -0.4650 </z1-m>
+    <x2-m> -3.4751 </x2-m>
+    <y2-m> -0.4980 </y2-m>
+    <z2-m> -0.4650 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FWRod</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-119</dep></entry>
+     <entry><ind>0.25</ind><dep>-110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> -3.6355 </x1-m>
+    <y1-m> 0.4091 </y1-m>
+    <z1-m> -0.9046 </z1-m>
+    <x2-m> -3.6355 </x2-m>
+    <y2-m> -0.5909 </y2-m>
+    <z2-m> -0.9046 </z2-m>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>FWheel</object-name>
+  <object-name>FWLGear</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-0.14</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m> -3.8505 </x1-m>
+    <y1-m> -0.0149 </y1-m>
+    <z1-m> -2.1301 </z1-m>
+    <x2-m> -3.6297 </x2-m>
+    <y2-m> 0.0149 </y2-m>
+    <z2-m> -1.1552 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>FWheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor>-40.6</factor>
+  <center>
+    <x-m> -3.7214 </x-m>
+    <y-m> 0.0000 </y-m>
+    <z-m> -1.7839 </z-m>
+  </center>
+  <axis>
+    <x-m> 0.0000 </x-m>
+    <y-m> -1.0000 </y-m>
+    <z-m> 0.0000 </z-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-100.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> -3.2474 </x1-m>
+    <y1-m> -0.1310 </y1-m>
+    <z1-m> -0.5877 </z1-m>
+    <x2-m> -2.4272 </x2-m>
+    <y2-m> -0.1561 </y2-m>
+    <z2-m> -0.6466 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> -1.3733 </x1-m>
+    <y1-m> -0.1473 </y1-m>
+    <z1-m> -0.6855 </z1-m>
+    <x2-m> -2.3726 </x2-m>
+    <y2-m> -0.1590 </y2-m>
+    <z2-m> -0.6495 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> -2.8489 </x1-m>
+    <y1-m> 0.1626 </y1-m>
+    <z1-m> -0.6339 </z1-m>
+    <x2-m> -1.8495 </x2-m>
+    <y2-m> 0.1527 </y2-m>
+    <z2-m> -0.6691 </z2-m>
+  </axis>
+ </animation>
+      
+  <!-- Left -->
+  
+<animation>
+  <type>rotate</type>
+  <object-name>LWheel</object-name>
+  <object-name>LLWGear</object-name>
+  <object-name>LWGear</object-name>
+  <object-name>LWRod</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>102</dep></entry>
+     <entry><ind>0.25</ind><dep>100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.4092 </x1-m>
+    <y1-m> -1.3988 </y1-m>
+    <z1-m> -0.8699 </z1-m>
+    <x2-m> 0.4092 </x2-m>
+    <y2-m> -2.3988 </y2-m>
+    <z2-m> -0.8699 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LWRod</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-112</dep></entry>
+     <entry><ind>0.25</ind><dep>-110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.3485 </x1-m>
+    <y1-m> -1.2902 </y1-m>
+    <z1-m> -1.3396 </z1-m>
+    <x2-m> 0.3485 </x2-m>
+    <y2-m> -2.2902 </y2-m>
+    <z2-m> -1.3396 </z2-m>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>LWheel</object-name>
+  <object-name>LLWGear</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-0.08</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m> 0.4117 </x1-m>
+    <y1-m> -1.7200 </y1-m>
+    <z1-m> -2.3754 </z1-m>
+    <x2-m> 0.4117 </x2-m>
+    <y2-m> -1.7200 </y2-m>
+    <z2-m> -1.3754 </z2-m>
+  </axis>
+ </animation>	
+
+ <animation>
+    <type>spin</type>
+    <object-name>LWheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor>31.1</factor>
+  <center>
+    <x-m> 0.4165 </x-m>
+    <y-m> -1.7135 </y-m>
+    <z-m> -1.9572 </z-m>
+  </center>
+  <axis>
+    <x-m> 0.0000 </x-m>
+    <y-m> -1.0000 </y-m>
+    <z-m> 0.0000 </z-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>100.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.3294 </x1-m>
+    <y1-m> -1.5933 </y1-m>
+    <z1-m> -1.0145 </z1-m>
+    <x2-m> 1.3294 </x2-m>
+    <y2-m> -1.5960 </y2-m>
+    <z2-m> -1.0147 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 2.0050 </x1-m>
+    <y1-m> -1.8506 </y1-m>
+    <z1-m> -0.7897 </z1-m>
+    <x2-m> 1.0195 </x2-m>
+    <y2-m> -1.8736 </y2-m>
+    <z2-m> -0.9580 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 2.0050 </x1-m>
+    <y1-m> -1.5768 </y1-m>
+    <z1-m> -0.7897 </z1-m>
+    <x2-m> 1.0195 </x2-m>
+    <y2-m> -1.5538 </y2-m>
+    <z2-m> -0.9580 </z2-m>
+  </axis>
+ </animation>
+ 
+   <!-- Right -->
+   
+<animation>
+  <type>rotate</type>
+  <object-name>RWheel</object-name>
+  <object-name>RLWGear</object-name>
+  <object-name>RWGear</object-name>
+  <object-name>RWRod</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>102</dep></entry>
+     <entry><ind>0.25</ind><dep>100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.4092 </x1-m>
+    <y1-m> 2.2065 </y1-m>
+    <z1-m> -0.8699 </z1-m>
+    <x2-m> 0.4092 </x2-m>
+    <y2-m> 1.2065 </y2-m>
+    <z2-m> -0.8699 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RWRod</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-112</dep></entry>
+     <entry><ind>0.25</ind><dep>-110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.3485 </x1-m>
+    <y1-m> 2.2136 </y1-m>
+    <z1-m> -1.3396 </z1-m>
+    <x2-m> 0.3485 </x2-m>
+    <y2-m> 1.2136 </y2-m>
+    <z2-m> -1.3396 </z2-m>
+  </axis>
+ </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>RWheel</object-name>
+  <object-name>RLWGear</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.08</dep></entry>
+  </interpolation>
+  <axis>
+    <x1-m> 0.4117 </x1-m>
+    <y1-m> 1.7200 </y1-m>
+    <z1-m> -2.3472 </z1-m>
+    <x2-m> 0.4117 </x2-m>
+    <y2-m> 1.7200 </y2-m>
+    <z2-m> -1.3472 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>RWheel</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor>31.1</factor>
+  <center>
+    <x-m> 0.4165 </x-m>
+    <y-m> 1.7135 </y-m>
+    <z-m> -1.9572 </z-m>
+  </center>
+  <axis>
+    <x-m> 0.0000 </x-m>
+    <y-m> -1.0000 </y-m>
+    <z-m> 0.0000 </z-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-100.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 0.3294 </x1-m>
+    <y1-m> 1.5933 </y1-m>
+    <z1-m> -1.0145 </z1-m>
+    <x2-m> 1.3294 </x2-m>
+    <y2-m> 1.5960 </y2-m>
+    <z2-m> -1.0147 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 2.0050 </x1-m>
+    <y1-m> 1.5768 </y1-m>
+    <z1-m> -0.7897 </z1-m>
+    <x2-m> 1.0195 </x2-m>
+    <y2-m> 1.5538 </y2-m>
+    <z2-m> -0.9580 </z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <axis>
+    <x1-m> 2.0050 </x1-m>
+    <y1-m> 1.8506 </y1-m>
+    <z1-m> -0.7897 </z1-m>
+    <x2-m> 1.0195 </x2-m>
+    <y2-m> 1.8736 </y2-m>
+    <z2-m> -0.9580 </z2-m>
+  </axis>
+ </animation>
+   
+</PropertyList>
