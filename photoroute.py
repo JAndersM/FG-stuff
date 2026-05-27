@@ -2,20 +2,6 @@ import math
 import csv
 import subprocess
 
-#Read from csv
-# rows with lat, lon
-coord=[]
-with open('route.csv') as f:
-    reader = csv.reader(f, delimiter=',')
-    for row in reader:
-        print(row)
-        if len(row)==2:
-            coord.append([float(row[0]),float(row[1])])
-
-print(coord)
-#Change tile_width for different latitudes
-#https://wiki.flightgear.org/Tile_Index_Scheme
-
 def tile_width(lat_floor):
     lf=abs(lat_floor)
     if lf<22:
@@ -35,8 +21,40 @@ def findindex(lat, lon):
     index=(int(lon + 180) << 14) + (int(lat + 90) << 6) + (y << 3) + x
     return index
     
+#Read from csv
+# rows with lat, lon
+coords=[]
+with open('route.csv') as f:
+    reader = csv.reader(f, delimiter=',')
+    for row in reader:
+        print(row)
+        if len(row)==2:
+            coords.append([float(row[0]),float(row[1])])
+
+#Add extra coordinates if needed
+n=0
+excoords=[]
+while n<len(coords)-1:
+    dla=coords[n+1][0]-coords[n][0]
+    dta=dla/0.125
+    dlo=coords[n+1][1]-coords[n][1]
+    dto=dlo/tile_width(coords[n][0])
+    d=math.floor(math.sqrt(dta*dta+dto*dto))
+    if d>1:
+        ddla=dla/d
+        ddlo=dlo/d
+        m=1
+        while m<d:
+            excoords.append([coords[n][0]+ddla*m, coords[n][1]+ddlo*m])
+            m=m+1
+    n=n+1
+coords.extend(excoords)    
+
+#Change tile_width for different latitudes
+#https://wiki.flightgear.org/Tile_Index_Scheme
+   
 indexl=[]
-for crd in coord:
+for crd in coords:
     tw=tile_width(math.floor(crd[0]))
     indexl.append(findindex(crd[0]+0.125,crd[1]-tw))
     indexl.append(findindex(crd[0]+0.125,crd[1]))
@@ -50,6 +68,8 @@ for crd in coord:
 
 #Remove doubles
 indexl=list( dict.fromkeys(indexl) )
+indexl.sort()
+print("\nTiles:")
 print(indexl)
 print()
 print(f"Download will take ~{len(indexl)} min and download ~{len(indexl)*12} MB")

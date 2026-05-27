@@ -38,6 +38,8 @@ for i in range(nlat):
 
 #Remove doubles
 indexl=list( dict.fromkeys(indexl) )
+indexl.sort()
+print("\nTiles:")
 print(indexl)
 print()
 print(f"Download will take ~{len(indexl)} min and download ~{len(indexl)*12} MB")
