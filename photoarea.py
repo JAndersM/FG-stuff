@@ -11,6 +11,8 @@ lon1=float(sys.argv[4])
 
 
 def tile_width(lat_floor):
+    if lat_floor<22:
+       return 0.125
     if lat_floor>=22 and lat_floor<62:
        return 0.25
     if lat_floor>=62 and lat_floor<76:
@@ -18,15 +20,15 @@ def tile_width(lat_floor):
     return NaN
    
 nlat=math.ceil((lat1-lat0)/0.125)
-nlon=math.ceil((lon1-lon0)/tile_width(lat0))
+nlon=math.ceil((lon1-lon0)/tile_width(abs(lat0)))
 
 indexl=[]
 for i in range(nlat):
     for j in range(nlon):
         lat=lat0+i*0.125
-        lon=lon0+j*tile_width(lat0)
+        lon=lon0+j*tile_width(abs(lat0))
         base_y = math.floor(lat)
-        tw=tile_width(base_y)
+        tw=tile_width(abs(base_y))
         y = math.trunc((lat - base_y) * 8)
         base_x = math.floor(math.floor(lon / tw) * tw)
         x = math.floor((lon - base_x) / tw)
@@ -38,5 +40,5 @@ indexl=list( dict.fromkeys(indexl) )
 print(indexl)
 
 for index in indexl:
-    subprocess.run(["python3","creator.py", "--scenery_folder", "<path to folder>", "--index",str(index) ], capture_output=False, text=True)
+    subprocess.run(["python3","creator.py", "--scenery_folder", "Photo", "--index",str(index) ], capture_output=False, text=True)
    
