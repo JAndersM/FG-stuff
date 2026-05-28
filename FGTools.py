@@ -1,7 +1,7 @@
 bl_info = {
     "name": "FG Tools",
     "author": "jam007",
-    "version": (1, 0),
+    "version": (1, 1),
     "blender": (4, 0, 0),
     "location": "View3D",
     "description": "Tools for Flightgear development",
@@ -246,7 +246,36 @@ def update_func(self, context):
         FG_PT_Animation_Panel.knob=True
     else:
         FG_PT_Animation_Panel.knob=False
-            
+
+class FG_PT_Cursor_Panel(bpy.types.Panel):
+    bl_label = "Export cursor"
+    bl_idname = "FGCursor_Panel"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = 'UI'
+    bl_category = "FG Tools"
+    bl_options = {'DEFAULT_CLOSED'}
+
+    def draw(self, context):
+        layout = self.layout
+        myprops = context.scene.myprops
+        layout.prop(myprops, "comment")
+        layout.operator("fga.exportcursor")
+        
+class FG_OT_Cursor_Operator(bpy.types.Operator):
+    bl_label = "Export Cursor pos."
+    bl_idname = "fga.exportcursor"
+    
+    def execute(self, context):
+        myprops = context.scene.myprops
+        selection = bpy.context.selected_objects
+        cp=bpy.context.scene.cursor.location
+        text=myprops.comment+":\n" \
+        +f"        <x-m>{cp.x:.4f}</x-m>\n" \
+        +f"        <y-m>{cp.y:.4f}</y-m>\n" \
+        +f"        <z-m>{cp.z:.4f}</z-m>\n"
+        export(myprops.file, text)
+        return {'FINISHED'} 
+        
 class MyProperties(bpy.types.PropertyGroup):
     file : bpy.props.BoolProperty(name="Export to file", default=False)
     object : bpy.props.BoolProperty(name="Use Axis Obj", description="Export axle as object", default=True)
@@ -289,7 +318,7 @@ class MyProperties(bpy.types.PropertyGroup):
     factor : bpy.props.FloatProperty(name="Factor", default=1.0)
     inherits : bpy.props.StringProperty(name="Inherits", default="Effects/")
     modelpath : bpy.props.StringProperty(name="Path", default="Model/")
-
+    comment: bpy.props.StringProperty(name="Comment", default="")
         
 def export(file, text):
     if file:
@@ -308,6 +337,7 @@ classes = [FGA_add_Axis, FG_PT_Tools_Panel,
             FG_PT_Animation_Panel, FG_OT_Animation_Operator,
             FG_PT_Effects_Panel, FG_OT_Effects_Operator,
             FG_PT_Model_Panel, FG_OT_Model_Operator,
+            FG_PT_Cursor_Panel,FG_OT_Cursor_Operator,
             MyProperties
           ]
   
