@@ -27,6 +27,10 @@ Effects and model placement:
 
 The selected objects will be exported in xml-tags for effect respective model.
 
+Export cursor position:
+
+Exports the position of the 3D cursor along with an optional comment.
+
 # Add Axis
 Blender axis object
 Useful for eg. Flightgear animation axis object.

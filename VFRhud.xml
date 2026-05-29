@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>Anders Aircraft Hud</name>
+
+  <enable3d>0</enable3d>
+	
+	<import>
+		<path>Huds/Instruments/compass.xml</path>
+		<y-offset>160</y-offset>
+	</import>
+
+	<tape>x
+		<name>KIAS</name>
+		<x>-260</x>
+		<y>-95</y>
+		<width>28</width>
+		<height>190</height>
+		<option>right</option>
+		<option>vertical</option>
+		<major-divisions>10</major-divisions>
+		<minor-divisions>5</minor-divisions>
+		<display-span>50.0</display-span>
+		<tick-bottom>true</tick-bottom>
+		<tick-top>true</tick-top>
+		<tick-right>false</tick-right>
+		<tick-left>false</tick-left>
+		<cap-bottom>false</cap-bottom>
+		<cap-top>false</cap-top>
+		<cap-right>false</cap-right>
+		<cap-left>true</cap-left>
+		<marker-offset>0.0</marker-offset>
+		<enable-pointer>true</enable-pointer>
+		<pointer-type>fixed</pointer-type>
+		<tick-type>line</tick-type>
+		<tick-length>variable</tick-length>
+		<input>
+			<property>/velocities/airspeed-kt</property>
+			<min>0.0</min>
+		</input>
+	</tape>
+
+	<tape>
+		<name>AMSL</name>
+		<x>290</x>
+		<y>-95</y>
+		<width>35</width>
+		<height>190</height>
+		<option>left</option>
+		<option>vertical</option>
+
+		<major-divisions>100</major-divisions>
+		<minor-divisions>25</minor-divisions>
+		<display-span>250.0</display-span>
+		<tick-bottom>true</tick-bottom>
+		<tick-top>true</tick-top>
+		<tick-right>false</tick-right>
+		<tick-left>false</tick-left>
+		<cap-bottom>false</cap-bottom>
+		<cap-top>false</cap-top>
+		<cap-right>true</cap-right>
+		<cap-left>false</cap-left>
+		<marker-offset>0.0</marker-offset>
+		<enable-pointer>true</enable-pointer>
+		<pointer-type>fixed</pointer-type>
+		<tick-type>line</tick-type>
+		<tick-length>variable</tick-length>
+		<input>
+			<property>/position/altitude-ft</property>
+		</input>
+	</tape>
+
+	<tape>
+		<name>RadioAltimeter</name>
+		<x>240</x>
+		<y>-95</y>
+		<width>25</width>
+		<height>190</height>
+		<option>left</option>
+		<option>vertical</option>
+
+		<major-divisions>25</major-divisions>
+		<minor-divisions>5</minor-divisions>
+		<display-span>200.0</display-span>
+		<tick-bottom>true</tick-bottom>
+		<tick-top>true</tick-top>
+		<tick-right>false</tick-right>
+		<tick-left>false</tick-left>
+		<cap-bottom>false</cap-bottom>
+		<cap-top>false</cap-top>
+		<cap-right>true</cap-right>
+		<cap-left>false</cap-left>
+		<marker-offset>0.0</marker-offset>
+		<enable-pointer>true</enable-pointer>
+		<pointer-type>fixed</pointer-type>
+		<tick-type>line</tick-type>
+		<tick-length>variable</tick-length>
+
+		<input>
+			<property>/position/altitude-agl-ft</property>
+			<min>0.0</min>
+		</input>
+
+		<condition>
+			<less-than>
+				<property>/position/altitude-agl-ft</property>
+				<value>1000000</value>
+			</less-than>
+		</condition>
+	</tape>
+
+	<label>
+		<name>groundspeed</name>
+		<y>110</y>
+		<x>-230</x>
+		<halign>center</halign>
+		<format>GS %5.0f Kts</format>
+		<input>
+			<property>/velocities/groundspeed-kt</property>
+		</input>
+	</label>
+	
+	<label>
+		<name>AOA</name>
+		<x>280</x>
+		<y>110</y>
+		<halign>center</halign>
+		<format>AOA %5.1f Deg</format>
+		<input>
+			<property>/orientation/alpha-deg</property>
+		</input>
+      <blinking>
+      <interval>0.25</interval>
+      <condition>
+        <greater-than>
+            <property>/orientation/alpha-deg</property>
+            <value>12</value>
+        </greater-than>
+      </condition>
+  </blinking>
+	</label>
+	
+  <label>
+		<name>Track</name>
+		<y>152</y>
+		<halign>center</halign>
+		<format>COG   %6.0f Deg</format>
+		<input>
+			<property>/orientation/track-deg</property>
+		</input>
+	</label>
+	
+  <label>
+		<name>True wind diection</name>
+		<y>144</y>
+		<halign>center</halign>
+		<format>TWD   %6.0f Deg</format>
+		<input>
+			<property>/environment/wind-from-heading-deg</property>
+		</input>
+	</label>	
+  
+</PropertyList>
