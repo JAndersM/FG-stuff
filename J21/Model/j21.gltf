@@ -325,8 +325,14 @@
 			"normalTexture":{
 				"index":8
 			},
+			"occlusionTexture":{
+				"index":9
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
+					"index":10
+				},
+				"metallicRoughnessTexture":{
 					"index":9
 				}
 			}
@@ -335,7 +341,7 @@
 			"name":"Glass",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":10
+					"index":11
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.06976744532585144
@@ -344,14 +350,14 @@
 		{
 			"name":"Prop",
 			"occlusionTexture":{
-				"index":11
+				"index":12
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":12
+					"index":13
 				},
 				"metallicRoughnessTexture":{
-					"index":11
+					"index":12
 				}
 			}
 		},
@@ -370,10 +376,10 @@
 			"name":"Lamp",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":13
+					"index":14
 				},
 				"metallicRoughnessTexture":{
-					"index":14
+					"index":15
 				}
 			}
 		}
@@ -1153,7 +1159,11 @@
 		},
 		{
 			"sampler":0,
-			"source":13
+			"source":14
+		},
+		{
+			"sampler":0,
+			"source":14
 		}
 	],
 	"images":[
@@ -1201,6 +1211,11 @@
 			"mimeType":"image/png",
 			"name":"Gear_N",
 			"uri":"Textures/Gear_N.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Gear_ORM",
+			"uri":"Textures/Gear_ORM.png"
 		},
 		{
 			"mimeType":"image/png",

@@ -292,9 +292,9 @@
   </contact>
  </ground_reactions>
 
- <system file="Controls.xml"/>
- <system file="Gear.xml"/>
- <system file="Flaps.xml"/>
+ <system file="Systems/Controls.xml"/>
+ <system file="Systems/Gear.xml"/>
+ <system file="Systems/Flaps.xml"/>
 
  <flight_control name="FCS: J21">
 

@@ -3,6 +3,25 @@
  
  <path>j21.gltf</path>
 
+<!-- ***** Transparent ***** -->
+
+<effect>
+    <!--inherits-from>Effects/model-pbr-transparent</inherits-from-->
+    <inherits-from>Effects/model-transparent-pbr</inherits-from>
+    <object-name>BLWindow</object-name>
+    <object-name>BRWindow</object-name>
+    <object-name>FLWindow</object-name>
+    <object-name>FRWindow</object-name>
+    <object-name>LtriagleWindow</object-name>
+    <object-name>LWindshield</object-name>
+    <object-name>MLWindow</object-name>
+    <object-name>MRWindow</object-name>
+    <object-name>RWindshield</object-name>
+    <object-name>TBwindow</object-name>
+    <object-name>TFwindow</object-name>
+    <object-name>Windshield</object-name>
+</effect>
+
 <!-- ***** Propeller ***** -->
 	
 <animation>
@@ -11,17 +30,14 @@
 		<object-name>Propeller</object-name>
 		<property>engines/engine/rpm</property>
 		<factor>0.68</factor>
-  <center>
-    <x-m> 2.1131 </x-m>
-    <y-m> 0.0000 </y-m>
-    <z-m> 0.0037 </z-m>
-  </center>
-  <axis>
-    <x-m> 1.0000 </x-m>
-    <y-m> 0.0000 </y-m>
-    <z-m> 0.0000 </z-m>
-  </axis>
-
+	  <axis>
+      <x1-m> 2.61 </x1-m>
+      <y1-m> 0 </y1-m>
+      <z1-m> 0.0037 </z1-m>
+      <x2-m> 1.61 </x2-m>
+      <y2-m> 0</y2-m>
+      <z2-m> 0.0037 </z2-m>
+    </axis>
 	</animation>
 
 	<!--animation>
@@ -223,16 +239,14 @@
     <type>spin</type>
     <object-name>FWheel</object-name>
     <property>gear/gear[0]/rollspeed-ms</property>
-    <factor>-40.6</factor>
-  <center>
-    <x-m> -3.7214 </x-m>
-    <y-m> 0.0000 </y-m>
-    <z-m> -1.7839 </z-m>
-  </center>
-  <axis>
-    <x-m> 0.0000 </x-m>
-    <y-m> -1.0000 </y-m>
-    <z-m> 0.0000 </z-m>
+    <factor>40.6</factor>
+    <axis>
+      <x1-m> -3.7214 </x1-m>
+      <y1-m> 0.5 </y1-m>
+      <z1-m> -1.7839 </z1-m>
+      <x2-m> -3.7214 </x2-m>
+      <y2-m> -0.5 </y2-m>
+      <z2-m> -1.7839 </z2-m>
   </axis>
  </animation>
 
@@ -361,15 +375,13 @@
     <object-name>LWheel</object-name>
     <property>gear/gear[1]/rollspeed-ms</property>
     <factor>31.1</factor>
-  <center>
-    <x-m> 0.4165 </x-m>
-    <y-m> -1.7135 </y-m>
-    <z-m> -1.9572 </z-m>
-  </center>
-  <axis>
-    <x-m> 0.0000 </x-m>
-    <y-m> -1.0000 </y-m>
-    <z-m> 0.0000 </z-m>
+    <axis>
+      <x1-m> 0.4165 </x1-m>
+      <y1-m> -1.2 </y1-m>
+      <z1-m> -1.9572 </z1-m>
+      <x2-m> 0.4165 </x2-m>
+      <y2-m> -2.2 </y2-m>
+      <z2-m> -1.9572 </z2-m>
   </axis>
  </animation>
 
@@ -498,16 +510,14 @@
     <object-name>RWheel</object-name>
     <property>gear/gear[2]/rollspeed-ms</property>
     <factor>31.1</factor>
-  <center>
-    <x-m> 0.4165 </x-m>
-    <y-m> 1.7135 </y-m>
-    <z-m> -1.9572 </z-m>
-  </center>
-  <axis>
-    <x-m> 0.0000 </x-m>
-    <y-m> -1.0000 </y-m>
-    <z-m> 0.0000 </z-m>
-  </axis>
+    <axis>
+      <x1-m> 0.4165 </x1-m>
+      <y1-m> -1.2 </y1-m>
+      <z1-m> -1.9572 </z1-m>
+      <x2-m> 0.4165 </x2-m>
+      <y2-m> -2.2 </y2-m>
+      <z2-m> -1.9572 </z2-m>
+   </axis>
  </animation>
 
  <animation>
