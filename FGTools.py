@@ -17,7 +17,25 @@ from bpy_extras.object_utils import AddObjectHelper, object_data_add
 from mathutils import Vector
 
 
-class FGA_add_Axis(bpy.types.Operator, AddObjectHelper):
+def add_object(self, context):
+    scale_z = self.scale.z
+
+    verts = [
+        Vector((0, 0, -0.5*scale_z)),
+        Vector((0, 0, 0.5*scale_z)),
+    ]
+
+    edges = [[0,1]]
+    faces = []
+
+    mesh = bpy.data.meshes.new(name="Axis")
+    mesh.from_pydata(verts, edges, faces)
+    # useful for development when the mesh may be invalid.
+    # mesh.validate(verbose=True)
+    object_data_add(context, mesh, operator=self)
+
+
+class FG_OT_add_Axis(bpy.types.Operator, AddObjectHelper):
     """Create a new Axis Object"""
     bl_idname = "mesh.add_object"
     bl_label = "Add Axis Object"
@@ -31,23 +49,10 @@ class FGA_add_Axis(bpy.types.Operator, AddObjectHelper):
     )
 
     def execute(self, context):
-        self.add_object(self, context)
-        return {'FINISHED'}
-    
-    def add_axis(self, context):
-        scale_z = self.scale.z
 
-        verts = [
-            Vector((0, 0, -0.5*scale_z)),
-            Vector((0, 0, 0.5*scale_z)),
-        ]
+        add_object(self, context)
 
-        edges = [[0,1]]
-        faces = []
-
-        mesh = bpy.data.meshes.new(name="Axis")
-        mesh.from_pydata(verts, edges, faces)
-        object_data_add(context, mesh, operator=self)            
+        return {'FINISHED'}            
 
 class FG_PT_Tools_Panel(bpy.types.Panel):
     bl_label = "FG Tools"
@@ -333,7 +338,7 @@ def add_axis_button(self, context):
         text="Add Axis",
         icon='IPO_LINEAR')
 
-classes = [FGA_add_Axis, FG_PT_Tools_Panel,
+classes = [FG_OT_add_Axis, FG_PT_Tools_Panel,
             FG_PT_Animation_Panel, FG_OT_Animation_Operator,
             FG_PT_Effects_Panel, FG_OT_Effects_Operator,
             FG_PT_Model_Panel, FG_OT_Model_Operator,
