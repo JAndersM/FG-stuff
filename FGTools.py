@@ -78,16 +78,21 @@ class FG_PT_Animation_Panel(bpy.types.Panel):
     
     knob=False
     axis=False
+    name=False
 
     def draw(self, context):
         layout = self.layout
         myprops = context.scene.myprops
         layout.prop(myprops, "object")
-        layout.prop(myprops, "animname")
         layout.prop(myprops, "type_enum")
-        layout.prop(myprops, "prop")
+        nrow=layout.column()
+        nrow.enabled=self.name
+        nrow.prop(myprops, "animname")
+        prow=layout.column()
+        prow.enabled= not self.name
+        prow.prop(myprops, "prop")
         arow=layout.column()
-        arow.enabled=(len(bpy.context.active_object.data.vertices) !=2)        
+        arow.enabled=(len(bpy.context.active_object.data.vertices) !=2 and self.name !=True)        
         arow.prop(myprops, "axis_enum")
         layout.prop(myprops, "factor")
         brow=layout.column()
@@ -110,77 +115,78 @@ class FG_OT_Animation_Operator(bpy.types.Operator):
         else:
             axobj=False 
         text="<animation>\n"
-        if myprops.animname != "":
+        if myprops.type_enum =="N":
             text=text+"    <name>"+myprops.animname+"</name>\n"
         for obj in selection:
             if obj != active or axobj==False:
                 text=text+"    <object-name>"+obj.name+"</object-name>\n"
-        match myprops.type_enum:
-            case "R":
-                at="rotate"
-            case "S":
-                at="spin"
-            case "T":
-                at="translate"
-            case "K":
-                at="knob"
-            case "L":
-                at="slider"
-            case _:
-                at="***"
-        text=text+"    <type>"+at+"</type>\n" \
-        +"    <property>"+myprops.prop+"</property>\n" \
-        +f"    <factor>{myprops.factor:.6f}</factor>\n";
-        if at!="translate" and at!="slider":
-            text=text+"    <center>\n" \
-            +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
-            +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
-            +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
-        if axobj :
-            if myprops.object :
-                text=text+"    <axis>\n        <object-name>"+active.name+"</object-name>\n    </axis>\n"
+        if myprops.type_enum !="N":
+            match myprops.type_enum:
+                case "R":
+                    at="rotate"
+                case "S":
+                    at="spin"
+                case "T":
+                    at="translate"
+                case "K":
+                    at="knob"
+                case "L":
+                    at="slider"
+                case _:
+                    at="***"
+            text=text+"    <type>"+at+"</type>\n" \
+            +"    <property>"+myprops.prop+"</property>\n" \
+            +f"    <factor>{myprops.factor:.6f}</factor>\n";
+            if at!="translate" and at!="slider":
+                text=text+"    <center>\n" \
+                +f"        <x-m>{active.location[0]:.4f}</x-m>\n" \
+                +f"        <y-m>{active.location[1]:.4f}</y-m>\n" \
+                +f"        <z-m>{active.location[2]:.4f}</z-m>\n    </center>\n"
+            if axobj :
+                if myprops.object :
+                    text=text+"    <axis>\n        <object-name>"+active.name+"</object-name>\n    </axis>\n"
+                else :
+                    v0=active.matrix_world @ active.data.vertices[0].co
+                    v1=active.matrix_world @ active.data.vertices[1].co
+                    text=text+f"    <axis>\n        <x1-m>{v0.x:.6f}</x1-m>\n" \
+                    +f"        <y1-m>{v0.y:.6f}</y1-m>\n" \
+                    +f"        <z1-m>{v0.z:.6f}</z1-m>\n" \
+                    +f"        <x2-m>{v1.x:.6f}</x2-m>\n" \
+                    +f"        <y2-m>{v1.y:.6f}</y2-m>\n" \
+                    +f"        <z2-m>{v1.z:.6f}</z2-m>\n    </axis>\n"
             else :
-                v0=active.matrix_world @ active.data.vertices[0].co
-                v1=active.matrix_world @ active.data.vertices[1].co
-                text=text+f"    <axis>\n        <x1-m>{v0.x:.6f}</x1-m>\n" \
-                +f"        <y1-m>{v0.y:.6f}</y1-m>\n" \
-                +f"        <z1-m>{v0.z:.6f}</z1-m>\n" \
-                +f"        <x2-m>{v1.x:.6f}</x2-m>\n" \
-                +f"        <y2-m>{v1.y:.6f}</y2-m>\n" \
-                +f"        <z2-m>{v1.z:.6f}</z2-m>\n    </axis>\n"
-        else :
-            text=text+"    <axis>\n"
-            match myprops.axis_enum:
-                case "Xp" :
-                    text=text+"        <x>1</x>\n        <y>0</y>\n        <z>0</z>\n"
-                case "Xn" :
-                    text=text+"        <x>-1</x>\n        <y>0</y>\n        <z>0</z>\n"
-                case "Yp" :
-                    text=text+"        <x>0</x>\n        <y>1</y>\n         <z>0</z>\n"
-                case "Yn" :
-                    text=text+"        <x>0</x>\n        <y>-1</y>\n        <z>0</z>\n"
-                case "Zp" :
-                    text=text+"        <x>0</x>\n        <y>0</y>\n        <z>1</z>\n"
-                case "Zn" :
-                    text=text+"        <x>0</x>\n        <y>0</y>\n        <z>-1</z>\n"
-                case _ :
-                    text=text+"        <x>*</x>\n        <y>*</y>\n        <z>*</z>\n"
-            text=text+"    </axis>\n"
-        if myprops.bind_enum !="None" :
-            text=text+"    <action>\n        <binding>\n"
-            match myprops.bind_enum:
-                case "PA" :
-                     text=text+"            <command>property-assign</command>\n"
-                case "PC" :
-                     text=text+"            <command>property-cycle</command>\n"
-                case "PD" :
-                     text=text+"            <command>property-adjust</command>\n"
-                case "PT" :
-                     text=text+"            <command>property-toggle</command>\n"
-                case _ :
-                    text=text+"****\n"
-            text=text+"            <property>"+myprops.biprop+"</property>\n\n" \
-            +"        </binding>\n    </action>\n"
+                text=text+"    <axis>\n"
+                match myprops.axis_enum:
+                    case "Xp" :
+                        text=text+"        <x>1</x>\n        <y>0</y>\n        <z>0</z>\n"
+                    case "Xn" :
+                        text=text+"        <x>-1</x>\n        <y>0</y>\n        <z>0</z>\n"
+                    case "Yp" :
+                        text=text+"        <x>0</x>\n        <y>1</y>\n         <z>0</z>\n"
+                    case "Yn" :
+                        text=text+"        <x>0</x>\n        <y>-1</y>\n        <z>0</z>\n"
+                    case "Zp" :
+                        text=text+"        <x>0</x>\n        <y>0</y>\n        <z>1</z>\n"
+                    case "Zn" :
+                        text=text+"        <x>0</x>\n        <y>0</y>\n        <z>-1</z>\n"
+                    case _ :
+                        text=text+"        <x>*</x>\n        <y>*</y>\n        <z>*</z>\n"
+                text=text+"    </axis>\n"
+            if myprops.bind_enum !="None" :
+                text=text+"    <action>\n        <binding>\n"
+                match myprops.bind_enum:
+                    case "PA" :
+                         text=text+"            <command>property-assign</command>\n"
+                    case "PC" :
+                         text=text+"            <command>property-cycle</command>\n"
+                    case "PD" :
+                         text=text+"            <command>property-adjust</command>\n"
+                    case "PT" :
+                         text=text+"            <command>property-toggle</command>\n"
+                    case _ :
+                        text=text+"****\n"
+                text=text+"            <property>"+myprops.biprop+"</property>\n\n" \
+                +"        </binding>\n    </action>\n"
         text=text+"</animation>\n"            
         export(myprops.file, text)      
         return {'FINISHED'}    
@@ -251,6 +257,10 @@ def update_func(self, context):
         FG_PT_Animation_Panel.knob=True
     else:
         FG_PT_Animation_Panel.knob=False
+    if context.scene.myprops.type_enum=="N":
+        FG_PT_Animation_Panel.name=True
+    else:
+        FG_PT_Animation_Panel.name=False
 
 class FG_PT_Cursor_Panel(bpy.types.Panel):
     bl_label = "Export cursor"
@@ -292,7 +302,8 @@ class MyProperties(bpy.types.PropertyGroup):
             ("S", "Spin", "Spin animation"),
             ("T", "Translate", "Translate animation"),
             ("K", "Knob", "Knob animation"),
-            ("L", "Slider", "Slider animation")
+            ("L", "Slider", "Slider animation"),
+            ("N", "Name", "Name animation")
             ],
             update=update_func)
     bind_enum : bpy.props.EnumProperty(
