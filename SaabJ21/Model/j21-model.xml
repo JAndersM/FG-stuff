@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<PropertyList>
+ 
+ <path>j21-exterior.ac</path>
+  
+ <model>
+  <usage>interior</usage>
+    <path>j21-interior.ac</path>
+ </model>
+
+ <effect>
+    <inherits-from>/Effects/model-transparent</inherits-from>
+    <object-name>BLWindowI</object-name>
+    <object-name>BRWindowI</object-name>
+    <object-name>FLWindowI</object-name>
+    <object-name>FRWindowI</object-name>
+    <object-name>LWindshieldI</object-name>
+    <object-name>MLWindowI</object-name>
+    <object-name>MRWindowI</object-name>
+    <object-name>RWindshieldI</object-name>
+    <object-name>TBwindowI</object-name>
+    <object-name>TFwindowI</object-name>
+    <object-name>WindshieldI</object-name>
+    <object-name>BLWindow</object-name>
+    <object-name>BRWindow</object-name>
+    <object-name>FLWindow</object-name>
+    <object-name>FRWindow</object-name>
+    <object-name>MLWindow</object-name>
+    <object-name>MRWindow</object-name>
+    <object-name>RWindshield</object-name>
+    <object-name>TBwindow</object-name>
+    <object-name>TFwindow</object-name>
+    <object-name>Windshield</object-name>
+    <object-name>LWindshield</object-name>
+    <object-name>Lampglass</object-name>
+    <object-name>Llampglass</object-name>
+    <object-name>Rlampglass</object-name>
+ </effect>
+
+ <effect>
+    <inherits-from>Effects/model-combined-wing</inherits-from>
+    <object-name>Aileron_L</object-name>
+    <object-name>Aileron_R</object-name>
+    <object-name>Elevator</object-name>
+    <object-name>Flap_L</object-name>
+    <object-name>Flap_R</object-name>
+    <object-name>Rudder_L</object-name>
+    <object-name>Rudder_R</object-name>
+    <object-name>Wing</object-name>
+ </effect>
+ 
+ <effect>
+    <inherits-from>Effects/model-combined-gear</inherits-from>
+    <object-name>FWheel</object-name>
+    <object-name>FWGear</object-name>
+    <object-name>FWRod</object-name>
+    <object-name>FWLGear</object-name>
+    <object-name>LWheel</object-name>
+    <object-name>LWRod</object-name>
+    <object-name>LWGear</object-name>
+    <object-name>LLWGear</object-name>
+    <object-name>RWheel</object-name>
+    <object-name>RWRod</object-name>
+    <object-name>RWGear</object-name>
+    <object-name>RLWGear</object-name>
+</effect>
+
+<effect>
+    <inherits-from>Effects/model-combined-main</inherits-from>
+    <object-name>FFWD</object-name>
+    <object-name>FRWD</object-name>
+    <object-name>FLWD</object-name>
+    <object-name>Mainbody</object-name>
+    <object-name>Door</object-name>
+    <object-name>Hatch</object-name>
+</effect>
+
+<effect>
+    <inherits-from>Effects/model-combined-beam</inherits-from>
+    <object-name>LBFWD</object-name>
+    <object-name>LBLWD</object-name>
+    <object-name>LBRWD</object-name>
+    <object-name>RBFWD</object-name>
+    <object-name>RBLWD</object-name>
+    <object-name>RBRWD</object-name>
+    <object-name>Beams</object-name>
+</effect>
+
+<animation>
+    <type>noshadow</type>
+    <object-name>BLWindow</object-name>
+    <object-name>BRWindow</object-name>
+    <object-name>FLWindow</object-name>
+    <object-name>FRWindow</object-name>
+    <object-name>MLWindow</object-name>
+    <object-name>MRWindow</object-name>
+    <object-name>RWindshield</object-name>
+    <object-name>TBwindow</object-name>
+    <object-name>TFwindow</object-name>
+    <object-name>Windshield</object-name>
+    <object-name>LWindshield</object-name>
+    <object-name>BLWindowI</object-name>
+    <object-name>BRWindowI</object-name>
+    <object-name>FLWindowI</object-name>
+    <object-name>LWindshieldI</object-name>
+    <object-name>MLWindowI</object-name>
+    <object-name>RWindshieldI</object-name>
+    <object-name>TFwindowI</object-name>
+    <object-name>WindshieldI</object-name>
+    <object-name>Lampglass</object-name>
+    <object-name>Llampglass</object-name>
+    <object-name>Rlampglass</object-name>
+</animation>
+
+<!-- ***** Propeller ***** -->
+	
+<animation>
+		<type>spin</type>
+		<object-name>Spinner</object-name>
+		<object-name>Propeller</object-name>
+		<property>engines/engine/rpm</property>
+		<factor>0.68</factor>
+		<axis>
+     <object-name>Propaxis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Propeller</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>1200</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Prop_disk</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>1200</value>
+			</greater-than>
+		</condition>
+	</animation>
+
+<!-- ********** Aerosurfaces, gears ************** -->
+ 
+<!-- Surfaces -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder_R</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>25</factor>
+  <axis>
+   <object-name>RRudaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder_L</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>-25</factor>
+  <axis>
+   <object-name>LRudaxis</object-name>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>Aileron_R</object-name>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <factor>-20</factor>
+  <axis>
+   <object-name>RAilaxis</object-name>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>Aileron_L</object-name>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <factor>20</factor>
+  <axis>
+   <object-name>LAilaxis</object-name>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Elevator</object-name>
+  <property>surface-positions/elevator-pos-norm</property>
+  <factor>20</factor>
+  <axis>
+   <object-name>Elevaxis</object-name>
+  </axis>
+ </animation>
+ 
+   <animation>
+  <type>rotate</type>
+  <object-name>Flap_R</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>-25</factor>
+  <axis>
+   <object-name>RFlapaxis</object-name>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>Flap_L</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>25</factor>
+  <axis>
+   <object-name>LFlapaxis</object-name>
+  </axis>
+ </animation>
+
+ <!-- **************  Gears ****************** -->
+ 
+ <!-- Nose -->	
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FWheel</object-name>
+  <object-name>FWLGear</object-name>
+  <object-name>FWaxis</object-name>
+  <object-name>FWGear</object-name>
+  <object-name>FWLGearaxis</object-name>
+  <object-name>FRodaxis</object-name>
+  <object-name>FWRod</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-104</dep></entry>
+     <entry><ind>0.25</ind><dep>-100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>FGearaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FWRod</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>119</dep></entry>
+     <entry><ind>0.25</ind><dep>110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>FRodaxis</object-name>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>FWheel</object-name>
+  <object-name>FWLGear</object-name>
+  <object-name>FWaxis</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-0.14</dep></entry>
+  </interpolation>
+  <axis>
+   <object-name>FWLGearaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>FWheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor>-40.6</factor>
+  <axis>
+   <object-name>FWaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>100.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>FFWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>FLWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>FRWDaxis</object-name>
+  </axis>
+ </animation>
+      
+  <!-- Left -->
+  
+<animation>
+  <type>rotate</type>
+  <object-name>LWheel</object-name>
+  <object-name>LLWGear</object-name>
+  <object-name>LWaxis</object-name>
+  <object-name>LWGear</object-name>
+  <object-name>LLWGearaxis</object-name>
+  <object-name>LRodaxis</object-name>
+  <object-name>LWRod</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-102</dep></entry>
+     <entry><ind>0.25</ind><dep>-100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>LGearaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LWRod</object-name>
+  <property>gear/gear[1]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>112</dep></entry>
+     <entry><ind>0.25</ind><dep>110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>LRodaxis</object-name>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>LWheel</object-name>
+  <object-name>LLWGear</object-name>
+  <object-name>LWaxis</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-0.08</dep></entry>
+  </interpolation>
+  <axis>
+   <object-name>LLWGearaxis</object-name>
+  </axis>
+ </animation>	
+
+ <animation>
+    <type>spin</type>
+    <object-name>LWheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor>31.1</factor>
+  <axis>
+   <object-name>LWaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-100.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>LBFWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>LBLWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LBRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>LBRWDaxis</object-name>
+  </axis>
+ </animation>
+ 
+   <!-- Right -->
+   
+<animation>
+  <type>rotate</type>
+  <object-name>RWheel</object-name>
+  <object-name>RLWGear</object-name>
+  <object-name>RWaxis</object-name>
+  <object-name>RWGear</object-name>
+  <object-name>RLWGearaxis</object-name>
+  <object-name>RRodaxis</object-name>
+  <object-name>RWRod</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>-102</dep></entry>
+     <entry><ind>0.25</ind><dep>-100.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>RGearaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RWRod</object-name>
+  <property>gear/gear[2]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>112</dep></entry>
+     <entry><ind>0.25</ind><dep>110.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>RRodaxis</object-name>
+  </axis>
+ </animation>
+  
+  <animation>
+  <type>translate</type>
+  <object-name>RWheel</object-name>
+  <object-name>RLWGear</object-name>
+  <object-name>RWaxis</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.1</ind><dep>0.0</dep></entry>
+     <entry><ind>1.0</ind><dep>0.08</dep></entry>
+  </interpolation>
+  <axis>
+   <object-name>RLWGearaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+    <type>spin</type>
+    <object-name>RWheel</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor>31.1</factor>
+  <axis>
+   <object-name>RWaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBFWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>100.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>RBFWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBLWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>RBLWDaxis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RBRWD</object-name>
+  <property>gear/gear[0]/position-norm</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>0.25</ind><dep>-80.0</dep></entry>
+     <entry><ind>1.0</ind><dep>-90.0</dep></entry>
+  </interpolation>  
+  <axis>
+   <object-name>RBRWDaxis</object-name>
+  </axis>
+ </animation>
+ 
+ <!-- ******* Door and Hatch  ***********-->
+ 
+<animation>
+    <type>rotate</type>
+    <object-name>TBwindow</object-name>
+    <object-name>Hatch</object-name>
+    <property>controls/canopy/position-norm</property>
+    <interpolation>
+      <entry>
+      <ind> 0.0</ind>
+      <dep> 0.0</dep>
+     </entry>
+     <entry>
+      <ind> 0.5</ind>
+      <dep> 0.0</dep>
+     </entry>
+     <entry>
+      <ind> 1.0</ind>
+      <dep> -165.0</dep>
+     </entry>
+   </interpolation>
+    <axis>
+        <object-name>HatchAxis</object-name>
+    </axis>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>FRWindow</object-name>
+    <object-name>MRWindow</object-name>
+    <object-name>Door</object-name>
+    <property>controls/canopy/position-norm</property>
+    <interpolation>
+     <entry>
+      <ind> 0.0</ind>
+      <dep> 0.0</dep>
+     </entry>
+     <entry>
+      <ind> 0.5</ind>
+      <dep> 177</dep>
+     </entry>
+     <entry>
+      <ind> 1.0</ind>
+      <dep> 177</dep>
+     </entry>
+  </interpolation>
+    <axis>
+        <object-name>DoorAxis</object-name>
+    </axis>
+</animation>
+ 
+
+<!-- ******** Lights **********-->
+
+ <model>
+  <name>LandingLight_left</name>
+  <path>Model/Lights/landing_light.xml</path>
+   <offsets>
+        <x-m>-1.075</x-m>
+        <y-m>-1.7190</y-m>
+        <z-m>-0.5260</z-m>
+   </offsets> 
+ </model>
+
+ <model>
+  <name>LandingLight_right</name>
+  <path>Model/Lights/landing_light.xml</path>
+   <offsets>
+        <x-m>-1.075</x-m>
+        <y-m>1.7190</y-m>
+        <z-m>-0.5260</z-m>
+   </offsets>
+ </model>
+ 
+  <model>
+  <name>LandingLight_center</name>
+  <path>Model/Lights/landing_light.xml</path>
+   <offsets>
+        <x-m>-4.070</x-m>
+        <y-m>-0.0047</y-m>
+        <z-m>-0.1950</z-m>
+   </offsets>
+ </model>
+
+<!-- ********** Pilot etc **********-->
+
+<model>
+    <path>Aircraft/Generic/Pilot/WWII/pilot.xml</path>
+    <offsets>
+        <x-m>-1.4</x-m>
+        <y-m>0</y-m>
+        <z-m>0.14</z-m>
+        <pitch-deg>10</pitch-deg>
+    </offsets>
+</model>
+
+</PropertyList>

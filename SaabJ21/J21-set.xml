@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+ <sim>
+
+  <description>Saab J 21</description>
+  <author>JAnders M</author>
+  <tags>
+    <tag n="0">WWII</tag>
+    <tag n="1">propeller</tag>
+    <tag n="2">fighter</tag>
+ </tags>
+ <minimum-fg-version>2024.1.0</minimum-fg-version>
+ 
+ <flight-model>jsb</flight-model>
+ <aero>J21</aero>
+ 
+ <model>
+  <path>Model/j21-model.xml</path>
+ </model>
+
+ <virtual-cockpit archive="y">true</virtual-cockpit>
+ <allow-toggle-cockpit archive="y">false</allow-toggle-cockpit>
+ 
+ <menubar         include="UI/menu.xml"/>
+ 
+ <view n="0">
+  <internal archive="y">true</internal>
+   <config>
+    <pitch-offset-deg>0</pitch-offset-deg>
+    <x-offset-m archive="y">0.0</x-offset-m>
+    <y-offset-m archive="y">0.45</y-offset-m>
+    <z-offset-m archive="y">-1.33</z-offset-m>
+   </config>
+ </view>
+     
+</sim>
+
+<input>
+  <keyboard>
+  	<key n="4">
+		<name>Ctrl-d</name>
+	        <desc>Toggle Canopy</desc>
+	          <binding> 
+	          	<command>nasal</command>
+			<script>SaabJ21.canopy.toggle();</script>
+		  </binding>
+	  </key>
+  </keyboard>
+</input>
+
+<controls include="controls.xml"/>
+
+<nasal>
+  <SaabJ21>
+    <file>Nasal/handler.nas</file>
+  </SaabJ21>
+</nasal>
+</PropertyList>

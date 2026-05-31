@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+    <flight>
+      <aileron-trim>0.025</aileron-trim>
+    </flight>
+    <gear>
+      <brake-parking type="double">1.0</brake-parking>
+    </gear>
+    <canopy>
+      <position-norm type="double">0.0</position-norm>
+      <enabled type="bool">true</enabled>
+    </canopy>
+    <lighting>
+      <cabin-light type="bool">false</cabin-light>
+      <landing-lights type="bool">false</landing-lights>
+      <nav-lights type="bool">false</nav-lights>
+    </lighting>
+</PropertyList>
