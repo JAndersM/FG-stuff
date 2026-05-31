@@ -329,7 +329,7 @@ def export(file, text):
  
 def add_axis_button(self, context):
     self.layout.operator(
-        FGA_add_Axis.bl_idname,
+        FG_OT_add_Axis.bl_idname,
         text="Add Axis",
         icon='IPO_LINEAR')
 
