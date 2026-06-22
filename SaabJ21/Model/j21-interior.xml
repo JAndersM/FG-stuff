@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!--
+Saab J21 internal models
+Anders  M
+-->
+
+<PropertyList>
+
+  <path>j21-interior.ac</path>
+
+  <!-- ********* Main flight controls ********-->
+  
+  <animation>
+      <object-name>Elevontrim</object-name>
+      <type>knob</type>
+      <property>/controls/flight/elevator-trim</property>
+      <factor>360.000000</factor>
+      <axis>
+          <object-name>ElevtrimAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-adjust</command>
+              <property>/controls/flight/elevator-trim</property>
+              <factor>-0.002</factor>
+              <min>-1</min>
+              <max>1</max>
+          </binding>
+      </action>
+  </animation>
+
+  <animation>
+      <object-name>Ailerontrim</object-name>
+      <type>knob</type>
+      <property>/controls/flight/aileron-trim</property>
+      <factor>360.000000</factor>
+      <axis>
+          <object-name>AiltrimAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-adjust</command>
+              <property>/controls/flight/aileron-trim</property>
+              <factor>0.002</factor>
+              <min>-1</min>
+              <max>1</max>
+          </binding>
+      </action>
+  </animation>
+
+  <animation>
+      <object-name>Ruddertrim</object-name>
+      <type>knob</type>
+      <property>/controls/flight/rudder-trim</property>
+      <factor>180.000000</factor>
+      <axis>
+          <object-name>AiltrimAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-adjust</command>
+              <property>/controls/flight/rudder-trim</property>
+              <factor>0.002</factor>
+              <min>-1</min>
+              <max>1</max>
+          </binding>
+      </action>
+  </animation>
+
+  <animation>
+      <object-name>Throttle</object-name>
+      <type>knob</type>
+      <property>/controls/engines/engine[0]/throttle</property>
+      <factor>-48.000000</factor>
+      <axis>
+          <object-name>ThrottleAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-adjust</command>
+              <property>/controls/engines/engine[0]/throttle</property>
+              <factor>0.02</factor>
+              <min>0</min>
+              <max>1</max>
+          </binding>
+      </action>
+  </animation>
+
+  <animation>
+      <object-name>Flapslevel</object-name>
+      <type>knob</type>
+      <property>/controls/flight/flaps</property>
+      <factor>25.000000</factor>
+      <axis>
+          <object-name>FlapGearAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-adjust</command>
+              <property>/controls/flight/flaps</property>
+              <factor>0.1</factor>
+              <min>0</min>
+              <max>1</max>
+          </binding>
+      </action>
+  </animation>
+
+  <animation>
+      <object-name>Gearlevel</object-name>
+      <type>knob</type>
+      <property>/controls/gear/gear-down</property>
+      <factor>25.000000</factor>
+      <axis>
+          <object-name>FlapGearAxis</object-name>
+      </axis>
+      <action>
+          <binding>
+              <command>property-toggle</command>
+              <property>/controls/gear/gear-down</property>
+          </binding>
+      </action>
+  </animation>
+  
+</PropertyList>
